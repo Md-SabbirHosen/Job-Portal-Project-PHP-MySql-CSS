@@ -36,22 +36,38 @@ if (isset($_POST['loginbtn'])) {
       $_SESSION['lastActive'] = time();
 
       // if a job seeker
-      if ($row['role_id'] == 1) {
-        $_SESSION['id_user'] = $row['id_user'];
-        // if profile details are yet to be updated
-        if (
-          $row['headline'] == '' || $row['contactno'] == '' || $row['dob'] == '' || $row['gender'] == '' || $row['state_id'] == '' ||
-          $row['city_id'] == '' || $row['address'] == '' || $row['career_id'] == '' || $row['education_id'] == ''
-        ) {
-          header('location: ../index.php');
-          exit();
-        } else {
-          $_SESSION['message'] = 'You have logged in successfully';
-          $_SESSION['messagetype'] = 'success';
-          header('location :../index.php');
-          exit();
+      if ($row['role_id'] == 1) : {
+          $_SESSION['id_user'] = $row['id_user'];
+          // if profile details are yet to be updated
+          if (
+            $row['headline'] == '' || $row['contactno'] == '' || $row['dob'] == '' || $row['gender'] == '' || $row['state_id'] == '' ||
+            $row['city_id'] == '' || $row['address'] == '' || $row['career_id'] == '' || $row['education_id'] == ''
+          ) {
+            header('location: ../index.php');
+            exit();
+          } else {
+            $_SESSION['message'] = 'You have logged in successfully';
+            $_SESSION['messagetype'] = 'success';
+            header('location :../index.php');
+            exit();
+          }
         }
-      }
+      endif;
+      if ($row['role_id'] == 2) : {
+          $_SESSION['id_company'] = $row['id_company'];
+          //if profile details are yet to be updated
+          if ($row['aboutme'] == '' || $row['industry_id'] == ''  || $row['contactno'] == ''  || $row['esta_date'] == '' || $row['empno'] == ''  || $row['state_id'] == '' || $row['city_id'] == ''  || $row['address'] == '') {
+            $_SESSION['message'] = 'You have logged in successfully. Click on Edit Details to update your profile..';
+            $_SESSION['messagetype'] = 'success';
+            header('location: ../index.php');
+            exit();
+          } else {
+            $_SESSION['message'] = 'You have logged in successfully';
+            $_SESSION['messagetype'] = 'success';
+            header('location: ../index.php');
+          }
+        }
+      endif;
     } else {
       $_SESSION['message'] = 'Email or Password is Incorrect!';
       $_SESSION['messagetype'] = 'warning';

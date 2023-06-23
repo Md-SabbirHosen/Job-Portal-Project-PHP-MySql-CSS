@@ -8,7 +8,10 @@ if (isset($_POST['myPassword'])) {
   $password = password_hash($newPassword, PASSWORD_DEFAULT);
 
   $sql = "UPDATE users set password = '$password' where email = '$email'";
+  if ($conn->query($sql)) {
+    echo "Password Updated successfully!!";
+  }
 }
 
-header("location : ../index.php");
+header('location: ../index.php');
 exit();

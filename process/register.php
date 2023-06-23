@@ -39,14 +39,9 @@ if (isset($_POST['registerbtn'])) {
     }
 
     if ($conn->query($sql)) {
-      $_SESSION['email'] = $email;
-      $_SESSION['message'] = 'Registration Complete!! Please login.';
-      $_SESSION['messagetype'] = 'success';
       header('location: ../login.php');
       exit();
     } else {
-      $_SESSION['message'] = $conn->error;
-      $_SESSION['messagetype'] = 'warning';
       header('location: ../register.php');
       exit();
     }
