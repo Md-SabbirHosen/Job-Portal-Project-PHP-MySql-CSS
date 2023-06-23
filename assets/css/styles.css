@@ -676,8 +676,8 @@ section {
 }
 
 .change-image-container {
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
   overflow: hidden;
   margin: auto;
   display: flex;
