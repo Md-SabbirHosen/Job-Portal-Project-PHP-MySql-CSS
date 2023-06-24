@@ -78,6 +78,7 @@ textarea {
 .btn-secondary {
   border-radius: 0;
 }
+
 .btn-secondary-form {
   border-radius: 0;
   border: none;
@@ -104,6 +105,7 @@ section {
 .line-dark {
   background-color: var(--darkest-color);
 }
+
 .line-dark-left {
   margin: 0 0 1rem 0;
 }
@@ -290,12 +292,14 @@ section {
 #footer {
   background-color: var(--tertiary-color);
 }
+
 .footer-content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
   padding: 2rem 0;
 }
+
 .footer-copyright-item {
   height: 5rem;
   color: var(--dark-color);
@@ -304,6 +308,7 @@ section {
   text-align: center;
   font-weight: bold;
 }
+
 .footer-copyright-item p {
   margin-top: 1.75rem;
 }
@@ -551,6 +556,7 @@ section {
 .sidebar ul li:last-child {
   border-bottom: 1px solid var(--primary-color);
 }
+
 .sidebar a {
   display: flex;
   align-items: center;
@@ -758,4 +764,78 @@ textarea:focus {
   font-size: 1rem;
   border-radius: 5px;
   padding: 1rem;
+}
+
+/* Employer Dashboard */
+/* Add Job */
+.add-job-container {
+  padding: 1rem 2rem;
+  overflow-y: scroll;
+}
+
+.item-a {
+  grid-area: job-title;
+}
+
+.item-b {
+  grid-area: job-category;
+}
+
+.item-c {
+  grid-area: job-type;
+}
+
+.item-d {
+  grid-area: job-experience;
+}
+
+.item-e {
+  grid-area: edu-qualification;
+}
+
+.item-f {
+  grid-area: division-state;
+}
+
+.item-g {
+  grid-area: district-city;
+}
+
+.item-h {
+  grid-area: min-salary;
+}
+
+.item-i {
+  grid-area: max-salary;
+}
+
+.item-j {
+  grid-area: deadline;
+}
+
+.item-k {
+  grid-area: job-skills;
+}
+
+.item-l {
+  grid-area: job-description;
+}
+
+.job-form-container {
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-areas:
+    "job-title job-title job-category job-category"
+    "job-type job-type job-experience edu-qualification"
+    "division-state district-city min-salary max-salary"
+    "deadline deadline . ."
+    "job-skills job-skills job-skills job-skills"
+    "job-description job-description job-description job-description";
+}
+
+.add-job-container label {
+  font-size: 1rem;
 }

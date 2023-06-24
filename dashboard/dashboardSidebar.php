@@ -49,7 +49,7 @@
             <i class="fa-solid fa-table-cells-large"></i>
           </span> Dashboard
         </a></li>
-      <li><a href="myResume.php"><span class="icon-container">
+      <li><a href="./addJob.php"><span class="icon-container">
             <i class="fa-solid fa-file-circle-plus"></i>
           </span>Add New Job</a></li>
       <li><a href="myResume.php"><span class="icon-container">

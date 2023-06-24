@@ -3,6 +3,7 @@
 
 <body>
   <?php include "../includes/indexNavbar.php"; ?>
+
   <div class="dashboard-container">
     <?php include "./dashboardSidebar.php"; ?>
     <div class="edit-profile-content-container">
