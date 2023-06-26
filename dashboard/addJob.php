@@ -61,7 +61,12 @@
             <label for="job-title">Job Description</label>
             <textarea cols="20" rows="5" placeholder="Job Description..." required="" name="description"></textarea>
           </div>
+          <div class="button-container item-m">
+            <button type="submit" name="myProfile" class="btn btn-secondary">Submit Job</button>
+          </div>
+
         </form>
+
       </div>
 
     </div>

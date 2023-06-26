@@ -536,6 +536,10 @@ section {
   height: calc(100vh - 5rem);
 }
 
+.dashboard-inner-container {
+  overflow-y: scroll;
+}
+
 .sidebar {
   display: block;
   color: var(--lightest-color);
@@ -658,12 +662,12 @@ section {
 }
 
 /* Edit Profile */
-.edit-profile-content-container {
+.edit-jobseeker-profile-content-container,
+.edit-company-profile-content-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   padding: 1rem 2rem;
-  overflow: scroll;
 }
 
 .edit-profile-content-container-left-side {
@@ -820,6 +824,9 @@ textarea:focus {
 .item-l {
   grid-area: job-description;
 }
+.item-m {
+  grid-area: submit-job;
+}
 
 .job-form-container {
   padding: 1.5rem;
@@ -833,9 +840,16 @@ textarea:focus {
     "division-state district-city min-salary max-salary"
     "deadline deadline . ."
     "job-skills job-skills job-skills job-skills"
-    "job-description job-description job-description job-description";
+    "job-description job-description job-description job-description"
+    ". submit-job submit-job .";
 }
 
 .add-job-container label {
   font-size: 1rem;
+}
+
+.add-job-container button {
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 1rem;
 }
