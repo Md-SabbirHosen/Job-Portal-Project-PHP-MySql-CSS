@@ -23,3 +23,29 @@ if (isset($_POST['myProfile'])) {
     echo "Profile Updated successfully!!";
   }
 }
+
+if (isset($_POST['companyProfile'])) {
+  $companyname = $_POST['companyname'];
+  $email = $_POST['email'];
+  $aboutme = $_POST['aboutme'];
+  $industry = $_POST['industry'];
+  $phoneNo = $_POST['phoneno'];
+  $esta_date = $_POST['esta_date'];
+  $empno = $_POST['empno'];
+  $region = $_POST['region'];
+  $city = $_POST['city'];
+  $address = $_POST['address'];
+  $website = $_POST['website'];
+
+
+
+  $sql = "UPDATE company SET companyname='$companyname',email='$email',address='$address',industry_id='$industry',city_id='$city',state_id='$region',contactno='$phoneNo', website='$website',esta_date='$esta_date',aboutme='$aboutme',empno='$empno' WHERE email = '$email'";
+
+  if ($conn->query($sql)) {
+    echo "Profile Updated successfully!!";
+  }
+}
+
+
+header('location: ../dashboard/editProfile.php');
+exit();
