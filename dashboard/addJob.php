@@ -52,12 +52,16 @@
               <span class="custom-arrow"></span>
             </div>
           </div>
-
-
-          <!-- <input type="text" name="industry" required> -->
           <div class="input-group  item-c">
             <label for="job-title">Job Type</label>
-            <input type="text" name="job_type" required>
+            <div class="select-container">
+              <select id="select-category">
+                <option value="Full Time">Full Time</option>
+                <option value="Part Time">Part Time</option>
+                <option value="Internship">Internship</option>
+              </select>
+              <span class="custom-arrow"></span>
+            </div>
           </div>
           <div class="input-group  item-d">
             <label for="job-title">Experience (Years)</label>
@@ -69,11 +73,90 @@
           </div>
           <div class="input-group  item-f">
             <label for="job-title">Division/State</label>
-            <input type="text" name="state" required>
+            <div class="select-container">
+              <select id="select-category">
+                <option value="Dhaka">Dhaka</option>
+                <option value="Chittagong">Chittagong</option>
+                <option value="Rajshahi">Rajshahi</option>
+                <option value="Khulna">Khulna</option>
+                <option value="Barisal">Barisal</option>
+                <option value="Sylhet">Sylhet</option>
+                <option value="Rangpur">Rangpur</option>
+                <option value="Mymensingh">Mymensingh</option>
+              </select>
+              <span class="custom-arrow"></span>
+            </div>
           </div>
           <div class="input-group  item-g">
             <label for="job-title">District/City</label>
-            <input type="text" name="city" required>
+            <div class="select-container">
+              <select id="select-category">
+                <option value="Dhaka">Dhaka</option>
+                <option value="Chittagong">Chittagong</option>
+                <option value="Sylhet">Sylhet</option>
+                <option value="Rajshahi">Rajshahi</option>
+                <option value="Khulna">Khulna</option>
+                <option value="Comilla">Comilla</option>
+                <option value="Barisal">Barisal</option>
+                <option value="Mymensingh">Mymensingh</option>
+                <option value="Cox's Bazar">Cox's Bazar</option>
+                <option value="Rangpur">Rangpur</option>
+                <option value="Jessore">Jessore</option>
+                <option value="Narayanganj">Narayanganj</option>
+                <option value="Gazipur">Gazipur</option>
+                <option value="Bogra">Bogra</option>
+                <option value="Dinajpur">Dinajpur</option>
+                <option value="Tangail">Tangail</option>
+                <option value="Jamalpur">Jamalpur</option>
+                <option value="Pabna">Pabna</option>
+                <option value="Narsingdi">Narsingdi</option>
+                <option value="Naogaon">Naogaon</option>
+                <option value="Kushtia">Kushtia</option>
+                <option value="Rangamati">Rangamati</option>
+                <option value="Cox's Bazar">Cox's Bazar</option>
+                <option value="Noakhali">Noakhali</option>
+                <option value="Bhola">Bhola</option>
+                <option value="Sherpur">Sherpur</option>
+                <option value="Kishoreganj">Kishoreganj</option>
+                <option value="Satkhira">Satkhira</option>
+                <option value="Chandpur">Chandpur</option>
+                <option value="Patuakhali">Patuakhali</option>
+                <option value="Bagerhat">Bagerhat</option>
+                <option value="Sirajganj">Sirajganj</option>
+                <option value="Moulvibazar">Moulvibazar</option>
+                <option value="Faridpur">Faridpur</option>
+                <option value="Brahmanbaria">Brahmanbaria</option>
+                <option value="Kushtia">Kushtia</option>
+                <option value="Panchagarh">Panchagarh</option>
+                <option value="Sunamganj">Sunamganj</option>
+                <option value="Narail">Narail</option>
+                <option value="Chuadanga">Chuadanga</option>
+                <option value="Joypurhat">Joypurhat</option>
+                <option value="Netrokona">Netrokona</option>
+                <option value="Magura">Magura</option>
+                <option value="Thakurgaon">Thakurgaon</option>
+                <option value="Lakshmipur">Lakshmipur</option>
+                <option value="Meherpur">Meherpur</option>
+                <option value="Jhenaidah">Jhenaidah</option>
+                <option value="Lalmonirhat">Lalmonirhat</option>
+                <option value="Gaibandha">Gaibandha</option>
+                <option value="Satkhira">Satkhira</option>
+                <option value="Habiganj">Habiganj</option>
+                <option value="Barguna">Barguna</option>
+                <option value="Shariatpur">Shariatpur</option>
+                <option value="Chapai Nawabganj">Chapai Nawabganj</option>
+                <option value="Khagrachhari">Khagrachhari</option>
+                <option value="Manikganj">Manikganj</option>
+                <option value="Nilphamari">Nilphamari</option>
+                <option value="Jhalokati">Jhalokati</option>
+                <option value="Pirojpur">Pirojpur</option>
+                <option value="Madaripur">Madaripur</option>
+                <option value="Bandarban">Bandarban</option>
+                <option value="Natore">Natore</option>
+                <option value="Munshiganj">Munshiganj</option>
+              </select>
+              <span class="custom-arrow"></span>
+            </div>
           </div>
           <div class="input-group  item-h">
             <label for="job-title">Minimum Salary</label>

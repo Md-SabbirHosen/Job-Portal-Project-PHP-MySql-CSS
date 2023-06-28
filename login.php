@@ -21,16 +21,23 @@
               <span>Don't Have an Account? <a href="#" class="register-tab">Sign Up!</a></span>
             </div>
             <form method="post" id="login-form" action="./process/login.php">
-              <div class="form-group">
-                <select class="selectpicker" name="acctype">
+              <div class="input-group ">
+                <!-- <select class="selectpicker" name="acctype">
                   <option value="Applicant">Job Seeker/Applicant</option>
                   <option value="Employer">Employer</option>
-                </select>
+                </select> -->
+                <div class="select-container">
+                  <select id="select-category" name="acctype">
+                    <option value="Applicant">Job Seeker/Applicant</option>
+                    <option value="Employer">Employer</option>
+                  </select>
+                  <span class="custom-arrow"></span>
+                </div>
               </div>
-              <div class="form-group">
+              <div class="input-group ">
                 <input type="email" name="email" id="email" placeholder="Email Address" required />
               </div>
-              <div class="form-group">
+              <div class="input-group ">
                 <input type="password" name="password" id="password" placeholder="Password" required minlength="6" />
               </div>
             </form>
@@ -44,22 +51,25 @@
               <span>Already Have an Account? <a href="#" class="login-tab">Log In!</a></span>
             </div>
             <form method="post" id="register-account-form" action="./process/register.php">
-              <div class="form-group ">
-                <select class="selectpicker   acctype" required name="acctype" id="acctype1">
-                  <option value="Applicant">Job Seeker/Applicant</option>
-                  <option value="Employer">Employer</option>
-                </select>
+              <div class="input-group ">
+                <div class="select-container">
+                  <select id="select-category" name="acctype">
+                    <option value="Applicant">Job Seeker/Applicant</option>
+                    <option value="Employer">Employer</option>
+                  </select>
+                  <span class="custom-arrow"></span>
+                </div>
               </div>
-              <div class="form-group">
+              <div class="input-group ">
                 <input type="text" name="fullname" placeholder="Full Name / Company's Name" required />
               </div>
-              <div class="form-group">
+              <div class="input-group ">
                 <input type="email" name="email" placeholder="Email Address" required />
               </div>
-              <div class="form-group">
+              <div class="input-group ">
                 <input type="password" name="password" placeholder="Password" required minlength="6" />
               </div>
-              <div class="form-group">
+              <div class="input-group ">
                 <input type="password" name="passwordrepeat" placeholder="Repeat Password" required minlength="6" />
               </div>
               <button class="btn btn-secondary-form" type="submit" id="regisbtn" name="registerbtn">Create an Account</button>

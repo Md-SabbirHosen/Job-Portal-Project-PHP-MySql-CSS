@@ -9,6 +9,7 @@ if (isset($_POST['registerbtn'])) {
   $password = password_hash($password, PASSWORD_DEFAULT);
   $createdat = date('Y-m-d');
 
+
   //getting role id
   if ($acctype === "Applicant") {
     $acctype = 1;

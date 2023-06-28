@@ -7,6 +7,9 @@ if (isset($_POST['loginbtn'])) {
   $password = $_POST['password'];
   $acctype = $_POST['acctype'];
 
+  // echo $email . $acctype;
+  // exit();
+
   // getting role id
   if ($acctype === "Applicant") {
     $acctype = 1;
