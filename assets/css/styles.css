@@ -726,19 +726,65 @@ section {
 }
 
 .input-group input,
-textarea {
+textarea,
+select {
+  width: 100%;
   font-size: 1rem;
   padding: 1rem;
   box-shadow: var(--box-shadow);
   border: 1px solid var(--primary-color);
 }
 
+.input-group select {
+  appearance: none;
+  color: var(--darkest-color);
+  cursor: pointer;
+}
+
+.input-group select option {
+  font-size: 1.1rem;
+  background-color: var(--dark-color);
+  color: var(--lightest-color);
+}
+
 .input-group input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   outline: none;
 }
 
-.change-password-container button {
+.input-group .select-container {
+  position: relative;
+}
+
+.input-group .custom-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  height: 100%;
+  width: 4rem;
+  pointer-events: none;
+}
+
+.input-group .custom-arrow::before {
+  --size: 0.5rem;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.input-group .custom-arrow::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid var(--secondary-color);
+}
+
+.input-group .change-password-container button {
   font-size: 1rem;
   border-radius: 5px;
   padding: 1rem;
@@ -832,7 +878,7 @@ textarea:focus {
   padding: 1.5rem;
   box-shadow: var(--box-shadow);
   display: grid;
-  gap: 1rem;
+  column-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   grid-template-areas:
     "job-title job-title job-category job-category"
