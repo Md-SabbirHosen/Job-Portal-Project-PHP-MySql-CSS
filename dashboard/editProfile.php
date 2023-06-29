@@ -174,7 +174,6 @@
     <div class="edit-company-profile-content-container">
       <?php if (($_SESSION['role_id']) == 2) :
         $id_company = $_SESSION['id_company'];
-
         $sql = "select * from company where id_company='$id_company'";
         $query = $conn->query($sql);
         $row = $query->fetch_assoc();
@@ -255,15 +254,22 @@
               </div>
               <div class="input-group">
                 <label for="divisionOrState">Division/State</label>
-                <?php if (isset($row1['name']) && $row1['name'] != '') : ?>
-                  <input type="text" name="region" value="<?php echo $row1['name'] ?>" required>
-                <?php else : ?>
-                  <input type="text" name="region" required>
-                <?php endif; ?>
+                <div class="select-container">
+                  <select id="select-category" name="region" required>
+                    <option value="<?php echo $state_id ?>" selected=""><?php echo $row1['name'] ?></option>
+                    <?php $divisionSql = "SELECT * from states";
+                    $divisionQuery = $conn->query($divisionSql);
+                    while ($division = $divisionQuery->fetch_assoc()) {
+                    ?>
+                      <option value="<?php echo $division['id'] ?>"><?php echo $division['name'] ?></option>
+                    <?php } ?>
+                  </select>
+                  <span class="custom-arrow"></span>
+                </div>
               </div>
               <div class="input-group">
                 <label for="cityOrDistrict">City/District</label>
-                <?php if (isset($row1['name']) && $row1['name'] != '') : ?>
+                <?php if (isset($row2['name']) && $row2['name'] != '') : ?>
                   <input type="text" name="city" value="<?php echo $row2['name'] ?>" required>
                 <?php else : ?>
                   <input type="text" name="city" required>

@@ -74,15 +74,13 @@
           <div class="input-group  item-f">
             <label for="job-title">Division/State</label>
             <div class="select-container">
-              <select id="select-category">
-                <option value="Dhaka">Dhaka</option>
-                <option value="Chittagong">Chittagong</option>
-                <option value="Rajshahi">Rajshahi</option>
-                <option value="Khulna">Khulna</option>
-                <option value="Barisal">Barisal</option>
-                <option value="Sylhet">Sylhet</option>
-                <option value="Rangpur">Rangpur</option>
-                <option value="Mymensingh">Mymensingh</option>
+              <select id="select-category" name="region" required>
+                <?php $divisionSql = "SELECT * from states";
+                $divisionQuery = $conn->query($divisionSql);
+                while ($division = $divisionQuery->fetch_assoc()) {
+                ?>
+                  <option value="<?php echo $division['id'] ?>"><?php echo $division['name'] ?></option>
+                <?php } ?>
               </select>
               <span class="custom-arrow"></span>
             </div>
@@ -188,6 +186,4 @@
 
     </div>
   </div>
-
-
 </body>
