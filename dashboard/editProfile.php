@@ -186,7 +186,7 @@
 
         // cities info
         $city_id = $row['city_id'];
-        $sql2 = "SELECT * from cities where id = '$city_id'";
+        $sql2 = "SELECT * from districts_or_cities where id = '$city_id'";
         $query2 = $conn->query($sql2);
         $row2 = $query2->fetch_assoc();
 
@@ -238,7 +238,28 @@
               </div>
               <div class="input-group">
                 <label for="industry">Industry</label>
-                <input type="text" name="industry" value="<?php echo $row3['name'] ?>" required>
+                <div class="select-container">
+                  <select id="select-category" name="industry" required>
+                    <?php
+                    ?>
+                    <!-- <option value="<?php //echo $industry_id 
+                                        ?>" selected=""><?php //echo $row3['name'] 
+                                                        ?></option> -->
+                    <?php
+                    if ($industry_id !== null) {
+                      echo '<option value="' . $industry_id . '" selected>' . $row3['name'] . '</option>';
+                    } else {
+                      echo '<option value="">Select Industry</option>';
+                    }
+                    $industrySql = "SELECT * from industry";
+                    $industryQuery = $conn->query($industrySql);
+                    while ($industry = $industryQuery->fetch_assoc()) {
+                    ?>
+                      <option value="<?php echo $industry['id'] ?>"><?php echo $industry['name'] ?></option>
+                    <?php } ?>
+                  </select>
+                  <span class="custom-arrow"></span>
+                </div>
               </div>
               <div class="input-group">
                 <label for="phoneNumber">Phone Number</label>
@@ -256,8 +277,13 @@
                 <label for="divisionOrState">Division/State</label>
                 <div class="select-container">
                   <select id="select-category" name="region" required>
-                    <option value="<?php echo $state_id ?>" selected=""><?php echo $row1['name'] ?></option>
-                    <?php $divisionSql = "SELECT * from states";
+                    <?php
+                    if ($state_id !== null) {
+                      echo '<option value="' . $state_id . '" selected>' . $row1['name'] . '</option>';
+                    } else {
+                      echo '<option value="">Select Division/State</option>';
+                    }
+                    $divisionSql = "SELECT * from states";
                     $divisionQuery = $conn->query($divisionSql);
                     while ($division = $divisionQuery->fetch_assoc()) {
                     ?>
@@ -269,11 +295,18 @@
               </div>
               <div class="input-group">
                 <label for="cityOrDistrict">City/District</label>
-                <?php if (isset($row2['name']) && $row2['name'] != '') : ?>
-                  <input type="text" name="city" value="<?php echo $row2['name'] ?>" required>
-                <?php else : ?>
-                  <input type="text" name="city" required>
-                <?php endif; ?>
+                <div class="select-container">
+                  <select id="select-category" name="city" required>
+                    <option value="<?php echo $city_id ?>" selected=""><?php echo $row2['name'] ?></option>
+                    <?php $districtOrCitySql = "SELECT * from districts_or_cities";
+                    $districtOrCityQuery = $conn->query($districtOrCitySql);
+                    while ($districtOrCity = $districtOrCityQuery->fetch_assoc()) {
+                    ?>
+                      <option value="<?php echo $districtOrCity['id'] ?>"><?php echo $districtOrCity['name'] ?></option>
+                    <?php } ?>
+                  </select>
+                  <span class="custom-arrow"></span>
+                </div>
               </div>
               <div class="input-group">
                 <label for="residentialAddress">Office Address</label>
