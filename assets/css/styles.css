@@ -871,6 +871,9 @@ select:focus {
   grid-area: job-description;
 }
 .item-m {
+  grid-area: job-responsibilities;
+}
+.item-n {
   grid-area: submit-job;
 }
 
@@ -887,6 +890,7 @@ select:focus {
     "deadline deadline . ."
     "job-skills job-skills job-skills job-skills"
     "job-description job-description job-description job-description"
+    "job-responsibilities job-responsibilities job-responsibilities job-responsibilities"
     ". submit-job submit-job .";
 }
 
