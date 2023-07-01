@@ -8,7 +8,7 @@
   --border-radius: 50px;
   /* --font-color: #0c121c; */
   --max-width: 1100px;
-  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 * {
@@ -909,7 +909,7 @@ select:focus {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .job-item-container {
@@ -917,13 +917,14 @@ select:focus {
   gap: 1.5rem;
   padding: 0.5rem 1rem;
   box-shadow: var(--box-shadow);
+  border: 1px solid transparent;
+
   cursor: pointer;
-  transition: all 1s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .job-item-container:hover {
   border: 1px solid var(--primary-color);
-  border-top: none;
 }
 
 .job-item-container .profile-container {
@@ -944,6 +945,15 @@ select:focus {
 .job-info-container {
   display: flex;
   flex-direction: column;
+  padding: 1rem 0;
+}
+
+.job-info-container span {
+  margin-left: 0.5rem;
+}
+
+.job-info-container i:first-child {
+  color: var(--dark-color);
 }
 
 .title-with-job-status,
@@ -951,6 +961,7 @@ select:focus {
   display: flex;
   align-items: center;
   gap: 1rem;
+  color: var(--darkest-color);
 }
 
 .job-status,
@@ -960,7 +971,10 @@ select:focus {
 .location-info {
   font-size: 0.8rem;
   font-weight: bold;
+  padding: 0 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--secondary-color);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
