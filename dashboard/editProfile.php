@@ -22,13 +22,13 @@
 
           // cities info
           $city_id = $row['city_id'];
-          $sql2 = "SELECT * from cities where id = '$city_id'";
+          $sql2 = "SELECT * from districts_or_cities where id = '$city_id'";
           $query2 = $conn->query($sql2);
           $row2 = $query2->fetch_assoc();
 
           // careers info
-          $career_id = $row['career_id'];
-          $sql3 = "SELECT * from career where id = $career_id";
+          $industry_id = $row['industry_id'];
+          $sql3 = "SELECT * from industry where id = $industry_id";
           $query3 = $conn->query($sql3);
           $row3 = $query3->fetch_assoc();
 
@@ -68,7 +68,7 @@
                 </div>
                 <div class="input-group">
                   <label for="about">About</label>
-                  <textarea name="aboutme" cols="30" rows="10" required><?php echo $row['aboutme'] ?></textarea>
+                  <textarea name="aboutme" cols="30" rows="10" placeholder="Write About Yourself..." required><?php echo $row['aboutme'] ?></textarea>
                 </div>
                 <div class="input-group">
                   <label for="headline">Headline</label>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="input-group">
                   <label for="phoneNumber">Phone Number</label>
-                  <input type="text" name="phoneno" value="<?php echo $row['contactno'] ?>" required>
+                  <input type="text" name="phoneno" placeholder="Enter Your Phone Number..." value="<?php echo $row['contactno'] ?>" required>
                 </div>
                 <div class="input-group">
                   <label for="dateOfBirth">Date of Birth</label>
@@ -84,49 +84,95 @@
                 </div>
                 <div class="input-group">
                   <label for="gender">Gender</label>
-                  <input type="text" name="gender" value="<?php echo $row['gender'] ?>" required>
+                  <input type="text" name="gender" placeholder="Enter Your Gender..." value="<?php echo $row['gender'] ?>" required>
                 </div>
                 <div class="input-group">
                   <label for="divisionOrState">Division/State</label>
-                  <?php if (isset($row1['name']) && $row1['name'] != '') : ?>
-                    <input type="text" name="region" value="<?php echo $row1['name'] ?>" required>
-                  <?php else : ?>
-                    <input type="text" name="region" required>
-                  <?php endif; ?>
+                  <div class="select-container">
+                    <select id="select-category" name="region" required>
+                      <?php
+                      if ($state_id !== null && $state_id != 0) {
+                        echo '<option value="' . $state_id . '" selected>' . $row1['name'] . '</option>';
+                      } else {
+                        echo '<option value="">Select Division/State</option>';
+                      }
+                      $divisionSql = "SELECT * from states";
+                      $divisionQuery = $conn->query($divisionSql);
+                      while ($division = $divisionQuery->fetch_assoc()) {
+                      ?>
+                        <option value="<?php echo $division['id'] ?>"><?php echo $division['name'] ?></option>
+                      <?php } ?>
+                    </select>
+                    <span class="custom-arrow"></span>
+                  </div>
                 </div>
                 <div class="input-group">
                   <label for="cityOrDistrict">City/District</label>
-                  <?php if (isset($row1['name']) && $row1['name'] != '') : ?>
-                    <input type="text" name="city" value="<?php echo $row2['name'] ?>" required>
-                  <?php else : ?>
-                    <input type="text" name="city" required>
-                  <?php endif; ?>
+                  <div class="select-container">
+                    <select id="select-category" name="city" required>
+                      <?php
+                      if ($city_id !== null && $city_id != 0) {
+                        echo '<option value="' . $city_id . '" selected>' . $row2['name'] . '</option>';
+                      } else {
+                        echo '<option value="">Select District/City</option>';
+                      }
+                      $districtOrCitySql = "SELECT * from districts_or_cities";
+                      $districtOrCityQuery = $conn->query($districtOrCitySql);
+                      while ($districtOrCity = $districtOrCityQuery->fetch_assoc()) {
+                      ?>
+                        <option value="<?php echo $districtOrCity['id'] ?>"><?php echo $districtOrCity['name'] ?></option>
+                      <?php } ?>
+                    </select>
+                    <span class="custom-arrow"></span>
+                  </div>
                 </div>
                 <div class="input-group">
                   <label for="residentialAddress">Residential Address</label>
-                  <input type="text" name="address" value="<?php echo $row['address'] ?>" required>
+                  <input type="text" name="address" placeholder="Enter Your Residential Address..." value="<?php echo $row['address'] ?>" required>
                 </div>
                 <div class="input-group">
                   <label for="highesteducation">Highest Education</label>
-                  <?php if (isset($row3['name']) && $row3['name'] != '') : ?>
-                    <input type="text" name="education" value="<?php echo $row3['name'] ?>" required>
-                  <?php else : ?>
-                    <input type="text" name="education" required>
-                  <?php endif ?>
+                  <div class="select-container">
+                    <select id="select-category" name="education">
+                      <?php
+                      if ($education_id !== null && $education_id != 0) {
+                        echo '<option value="' . $education_id . '" selected>' . $row4['name'] . '</option>';
+                      } else {
+                        echo '<option value="">Select Degree...</option>';
+                      }
+                      $educationSql = "SELECT * from education";
+                      $educationQuery = $conn->query($educationSql);
+                      while ($education = $educationQuery->fetch_assoc()) {
+                      ?>
+                        <option value="<?php echo $education['id'] ?>"><?php echo $education['name'] ?></option>
+                      <?php } ?>
+                    </select>
+                    <span class="custom-arrow"></span>
+                  </div>
                 </div>
                 <div class="input-group">
                   <label for="careerIndustry">Career Industry</label>
-                  <?php if (isset($row3['name']) && $row3['name'] != '') : ?>
-                    <input type="text" name="career" value="<?php echo $row4['name'] ?>" required>
-                  <?php else : ?>
-                    <input type="text" name="career" required>
-                  <?php endif; ?>
+                  <div class="select-container">
+                    <select id="select-category" name="career">
+                      <?php
+                      if ($industry_id !== null && $industry_id != 0) {
+                        echo '<option value="' . $industry_id . '" selected>' . $row4['name'] . '</option>';
+                      } else {
+                        echo '<option value="">Select Industry...</option>';
+                      }
+                      $jobCategorySql = "SELECT * from industry";
+                      $jobCategoryQuery = $conn->query($jobCategorySql);
+                      while ($jobCategory = $jobCategoryQuery->fetch_assoc()) {
+                      ?>
+                        <option value="<?php echo $jobCategory['id'] ?>"><?php echo $jobCategory['name'] ?></option>
+                      <?php } ?>
+                    </select>
+                    <span class="custom-arrow"></span>
+                  </div>
                 </div>
                 <div class=" input-group">
                   <label for="skills">Skills</label>
-                  <textarea name="skills" cols="30" rows="5" required>
-                <?php echo $row['skills'] ?>
-              </textarea>
+                  <textarea name="skills" cols="30" rows="5" placeholder="Mention Your Skills..." required><?php echo $row['skills']; ?></textarea>
                 </div>
                 <div class="button-container">
                   <button type="submit" name="myProfile" class="btn btn-secondary">Save Changes</button>

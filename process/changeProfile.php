@@ -17,7 +17,7 @@ if (isset($_POST['myProfile'])) {
 
 
 
-  $sql = "UPDATE users SET fullname='$fullName',email='$email',address='$address',headline='$headline',city_id='$city',state_id='$region',contactno='$phoneNo', career_id='$career', education_id='$education',dob='$dob',aboutme='$aboutme',skills='$skills',gender='$gender' WHERE email = '$email'";
+  $sql = "UPDATE users SET fullname='$fullName',email='$email',address='$address',headline='$headline',city_id='$city',state_id='$region',contactno='$phoneNo', industry_id='$career', education_id='$education',dob='$dob',aboutme='$aboutme',skills='$skills',gender='$gender' WHERE email = '$email'";
 
   if ($conn->query($sql)) {
     echo "Profile Updated successfully!!";
