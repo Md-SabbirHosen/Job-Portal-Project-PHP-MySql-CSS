@@ -241,11 +241,11 @@
                 <div class="select-container">
                   <select id="select-category" name="industry" required>
                     <?php
-                    ?>
-                    <!-- <option value="<?php //echo $industry_id 
-                                        ?>" selected=""><?php //echo $row3['name'] 
-                                                        ?></option> -->
-                    <?php
+                    if ($industry_id !== null && $industry_id != 0) {
+                      echo '<option value="' . $industry_id . '" selected>' . $row1['name'] . '</option>';
+                    } else {
+                      echo '<option value="">Select Job Category</option>';
+                    }
                     if ($industry_id !== null) {
                       echo '<option value="' . $industry_id . '" selected>' . $row3['name'] . '</option>';
                     } else {
@@ -278,7 +278,7 @@
                 <div class="select-container">
                   <select id="select-category" name="region" required>
                     <?php
-                    if ($state_id !== null) {
+                    if ($state_id !== null && $state_id != 0) {
                       echo '<option value="' . $state_id . '" selected>' . $row1['name'] . '</option>';
                     } else {
                       echo '<option value="">Select Division/State</option>';
@@ -297,8 +297,13 @@
                 <label for="cityOrDistrict">City/District</label>
                 <div class="select-container">
                   <select id="select-category" name="city" required>
-                    <option value="<?php echo $city_id ?>" selected=""><?php echo $row2['name'] ?></option>
-                    <?php $districtOrCitySql = "SELECT * from districts_or_cities";
+                    <?php
+                    if ($city_id !== null && $city_id != 0) {
+                      echo '<option value="' . $city_id . '" selected>' . $row2['name'] . '</option>';
+                    } else {
+                      echo '<option value="">Select District/City</option>';
+                    }
+                    $districtOrCitySql = "SELECT * from districts_or_cities";
                     $districtOrCityQuery = $conn->query($districtOrCitySql);
                     while ($districtOrCity = $districtOrCityQuery->fetch_assoc()) {
                     ?>

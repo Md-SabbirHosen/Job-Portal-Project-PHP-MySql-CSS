@@ -903,3 +903,64 @@ select:focus {
   border-radius: 5px;
   padding: 1rem;
 }
+
+/* manage jobs */
+.manage-job-content-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  overflow: scroll;
+}
+
+.job-item-container {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.5rem 1rem;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  transition: all 1s ease-in;
+}
+
+.job-item-container:hover {
+  border: 1px solid var(--primary-color);
+  border-top: none;
+}
+
+.job-item-container .profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.job-item-container .profile-container img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 0.25rem solid var(--tertiary-color);
+  box-shadow: var(--box-shadow);
+}
+
+.job-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-with-job-status,
+.others-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.job-status,
+.job-category-info,
+.date-info,
+.salary-info,
+.location-info {
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
