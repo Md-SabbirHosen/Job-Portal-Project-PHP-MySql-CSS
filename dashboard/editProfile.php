@@ -200,9 +200,9 @@
                 <h3>Deactivate Account</h3>
               </div>
               <div class="deactivate-button-container">
-                <form action="" method="post">
+                <form action="../process/deactivate.php" method="post">
                   <div class="button-container">
-                    <button type="submit" name="" class="btn btn-secondary">Deactivate Account</button>
+                    <button type="submit" name="userProfile" class="btn btn-secondary">Deactivate Account</button>
                   </div>
                 </form>
               </div>
