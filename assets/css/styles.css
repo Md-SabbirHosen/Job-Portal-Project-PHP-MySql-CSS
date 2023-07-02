@@ -173,7 +173,7 @@ section {
   background: url("../images/homeWallpaper.jpg") no-repeat center center/cover;
   position: relative;
   width: 100vw;
-  height: 75vh;
+  height: calc(100vh - 5rem);
 }
 
 .intro-banner-overlay {
@@ -977,4 +977,22 @@ select:focus {
   align-items: center;
   color: var(--secondary-color);
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+/* Find Jobs */
+#find-jobs-page .intro-banner {
+  background-image: url("../images/findJobsWallpaper.jpg");
+  height: calc(100vh - 10rem);
+}
+
+#find-jobs-page .intro-banner-overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.keywords p {
+  font-weight: bold;
+}
+
+.keywords span {
+  color: var(--lightest-color);
 }
