@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="input-group  item-c">
-            <label for="job-title">Job Type</label>
+            <label for="job-type">Job Type</label>
             <div class="select-container">
               <select id="select-category" name="job_type">
                 <?php $jobTypeSql = "SELECT * from job_type";

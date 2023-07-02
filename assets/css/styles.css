@@ -72,7 +72,7 @@ textarea {
   background: var(--primary-color);
   color: var(--lightest-color);
   border-radius: var(--border-radius);
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1rem;
 }
 
 .btn-secondary {
@@ -1019,8 +1019,10 @@ select:focus {
   flex-direction: column;
   gap: 2rem;
 }
+
 .sidebar-container .search-form-container {
-  padding: 1rem;
+  text-align: left;
+  padding: 1rem 1rem 1.5rem;
   box-shadow: var(--box-shadow);
 }
 
@@ -1032,8 +1034,22 @@ select:focus {
   position: relative;
 }
 
-.search-input-wrapper input[type="search"] {
+.search-form-container input {
   padding-right: 2rem;
+}
+
+.keyword-search-container,
+.location-search-container,
+.job-type-search-container {
+  width: 100%;
+}
+
+.search-form-container .select-container {
+  width: 100%;
+}
+
+.search-form-container button {
+  font-size: 1rem;
 }
 
 .search-input-wrapper input[type="search"]::-webkit-search-cancel-button {
