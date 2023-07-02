@@ -25,7 +25,11 @@
       <div class="page-content-left-side">
         <?php include "./includes/searchSidebar.php" ?>
       </div>
-      <div class="page-content-right-side"></div>
+      <div class="page-content-right-side">
+        <div class="headline">
+          <h3>Deactivate Account</h3>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
