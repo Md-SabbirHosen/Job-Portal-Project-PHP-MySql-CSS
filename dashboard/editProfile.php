@@ -26,11 +26,6 @@
           $query2 = $conn->query($sql2);
           $row2 = $query2->fetch_assoc();
 
-          // careers info
-          $industry_id = $row['industry_id'];
-          $sql3 = "SELECT * from industry where id = $industry_id";
-          $query3 = $conn->query($sql3);
-          $row3 = $query3->fetch_assoc();
 
           // education info
           $education_id = $row['education_id'];
@@ -150,7 +145,7 @@
                     <span class="custom-arrow"></span>
                   </div>
                 </div>
-                <div class="input-group">
+                <!-- <div class="input-group">
                   <label for="careerIndustry">Career Industry</label>
                   <div class="select-container">
                     <select id="select-category" name="career">
@@ -169,7 +164,7 @@
                     </select>
                     <span class="custom-arrow"></span>
                   </div>
-                </div>
+                </div> -->
                 <div class=" input-group">
                   <label for="skills">Skills</label>
                   <textarea name="skills" cols="30" rows="5" placeholder="Mention Your Skills..." required><?php echo $row['skills']; ?></textarea>

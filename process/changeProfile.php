@@ -12,12 +12,11 @@ if (isset($_POST['myProfile'])) {
   $city = $_POST['city'];
   $address = $_POST['address'];
   $education = $_POST['education'];
-  $career = $_POST['career'];
   $skills = $_POST['skills'];
 
 
 
-  $sql = "UPDATE users SET fullname='$fullName',email='$email',address='$address',headline='$headline',city_id='$city',state_id='$region',contactno='$phoneNo', industry_id='$career', education_id='$education',dob='$dob',aboutme='$aboutme',skills='$skills',gender='$gender' WHERE email = '$email'";
+  $sql = "UPDATE users SET fullname='$fullName',email='$email',address='$address',headline='$headline',city_id='$city',state_id='$region',contactno='$phoneNo',  education_id='$education',dob='$dob',aboutme='$aboutme',skills='$skills',gender='$gender' WHERE email = '$email'";
 
   if ($conn->query($sql)) {
     echo "Profile Updated successfully!!";
