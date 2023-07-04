@@ -5,6 +5,8 @@
   --darkest-color: #101935;
   --dark-color: #334069;
   --lightest-color: #ffffff;
+  --active-color: #59c173;
+  --expire-color: #ff416c;
   --border-radius: 50px;
   /* --font-color: #0c121c; */
   --max-width: 1100px;
@@ -126,6 +128,19 @@ section {
   border-top-right-radius: 5px;
   background-color: var(--dark-color);
   color: var(--lightest-color);
+}
+
+.validity-active,
+.validity-expired {
+  background: var(--active-color);
+  color: var(--lightest-color);
+  font-weight: bold;
+  padding: 0 0.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.validity-expired {
+  background: var(--expire-color);
 }
 
 /* Navbar */
@@ -292,6 +307,7 @@ section {
   border: 1px solid var(--tertiary-color);
   padding: 3rem;
   background-color: var(--tertiary-color);
+  border: 1px solid var(--darkest-color);
 }
 
 .browse-content p {
@@ -925,6 +941,7 @@ select:focus {
 
 .job-item-container {
   display: flex;
+  align-items: center;
   gap: 1.5rem;
   padding: 0.5rem 1rem;
   box-shadow: var(--box-shadow);
@@ -954,6 +971,7 @@ select:focus {
 
 .job-info-container {
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   padding: 1rem 0;
 }
@@ -986,7 +1004,7 @@ select:focus {
   justify-content: center;
   align-items: center;
   color: var(--secondary-color);
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: var(--box-shadow);
 }
 
 /* Find Jobs */
@@ -1071,7 +1089,7 @@ select:focus {
 
 .page-content-right-side {
   overflow: hidden;
-  padding: 0;
+  padding: 0.25rem;
 }
 
 .page-content-right-side .headline {
@@ -1091,5 +1109,30 @@ select:focus {
 }
 
 .page-content-right-side .job-item-container {
-  margin: 1rem 0;
+  margin-top: 1rem;
+}
+
+#find-jobs-page .job-info-container {
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+#find-jobs-page .job-info-left-side {
+  flex: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#find-jobs-page .job-info-left-side h3 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+#find-jobs-page .job-info-right-side {
+  flex: 1;
 }
