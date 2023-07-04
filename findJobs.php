@@ -88,15 +88,16 @@
                 </div>
               </div>
               <div class="job-info-right-side">
-                <?php $deadline = date_create($row['deadline']);
+                <?php
+                $deadline = date_create($row['deadline']);
                 $now = date_create(date("y-m-d"));
+
                 if ($now < $deadline) {
                   echo "<span class=" . "validity-active" . ">Active</span>";
                 } else {
                   echo "<span class=" . "validity-expired" . ">Expired</span>";
                 }
                 ?>
-
               </div>
             </div>
           </div>

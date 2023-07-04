@@ -1,7 +1,7 @@
 <div class="sidebar-container">
   <div class="keyword-search-container">
     <div class="search-form-container">
-      <form method="post" action="../process/changePassword.php">
+      <form method="post" action="../searchJob.php">
         <div class="input-group">
           <label for="search-keyword">Search Keywords</label>
           <div class="line line-light line-light-left"></div>

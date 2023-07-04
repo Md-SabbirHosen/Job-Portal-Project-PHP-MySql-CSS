@@ -5,8 +5,8 @@
   --darkest-color: #101935;
   --dark-color: #334069;
   --lightest-color: #ffffff;
-  --active-color: #59c173;
-  --expire-color: #ff416c;
+  --success-color: #59c173;
+  --error-color: #ff416c;
   --border-radius: 50px;
   /* --font-color: #0c121c; */
   --max-width: 1100px;
@@ -132,7 +132,7 @@ section {
 
 .validity-active,
 .validity-expired {
-  background: var(--active-color);
+  background: var(--success-color);
   color: var(--lightest-color);
   font-weight: bold;
   padding: 0 0.5rem;
@@ -140,7 +140,7 @@ section {
 }
 
 .validity-expired {
-  background: var(--expire-color);
+  background: var(--error-color);
 }
 
 /* Navbar */
@@ -1135,4 +1135,12 @@ select:focus {
 
 #find-jobs-page .job-info-right-side {
   flex: 1;
+}
+
+/* Search Job */
+.no-job-results {
+  margin: 5rem auto;
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--error-color);
 }
