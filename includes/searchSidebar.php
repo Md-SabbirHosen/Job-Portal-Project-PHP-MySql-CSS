@@ -45,7 +45,7 @@
     <div class="search-form-container">
       <form method="post" action="../process/changePassword.php">
         <div class="input-group">
-          <label for="category-keyword">All Categories</label>
+          <label for="category-keyword">Category</label>
           <div class="line line-light line-light-left"></div>
           <div class="select-container">
             <select id="select-category" name="career" required>
@@ -53,7 +53,7 @@
               if ($industry_id !== null && $industry_id != 0) {
                 echo '<option value="' . $industry_id . '" selected>' . $row4['name'] . '</option>';
               } else {
-                echo '<option value="">Select Categories</option>';
+                echo '<option value="">All Categories</option>';
               }
               $jobCategorySql = "SELECT * from industry";
               $jobCategoryQuery = $conn->query($jobCategorySql);

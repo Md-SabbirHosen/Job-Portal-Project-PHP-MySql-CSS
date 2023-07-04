@@ -8,7 +8,9 @@
   --border-radius: 50px;
   /* --font-color: #0c121c; */
   --max-width: 1100px;
-  --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /* --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+  --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 * {
@@ -913,7 +915,8 @@ select:focus {
 }
 
 /* manage jobs */
-.manage-job-content-container {
+.manage-job-content-container,
+.page-content-right-side {
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -926,7 +929,6 @@ select:focus {
   padding: 0.5rem 1rem;
   box-shadow: var(--box-shadow);
   border: 1px solid transparent;
-
   cursor: pointer;
   transition: all 0.3s ease-in;
 }
@@ -1065,4 +1067,29 @@ select:focus {
   top: 0%;
   right: 0%;
   padding: 1.2rem 1rem;
+}
+
+.page-content-right-side {
+  overflow: hidden;
+  padding: 0;
+}
+
+.page-content-right-side .headline {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.page-content-right-side .icon-container {
+  background: var(--lightest-color);
+  color: var(--primary-color);
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.page-content-right-side .job-item-container {
+  margin: 1rem 0;
 }
