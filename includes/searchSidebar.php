@@ -15,18 +15,14 @@
   </div>
   <div class="location-search-container">
     <div class="search-form-container">
-      <form method="post" action="../process/changePassword.php">
+      <form method="post" action="../searchJob.php">
         <div class="input-group">
           <label for="location-keyword">Location</label>
           <div class="line line-light line-light-left"></div>
           <div class="select-container">
-            <select id="select-category" name="city" required>
+            <select id="select-category" name="location-search">
+              <option value="">All Location</option>
               <?php
-              if ($city_id !== null && $city_id != 0) {
-                echo '<option value="' . $city_id . '" selected>' . $row2['name'] . '</option>';
-              } else {
-                echo '<option value="">All Location</option>';
-              }
               $districtOrCitySql = "SELECT * from districts_or_cities";
               $districtOrCityQuery = $conn->query($districtOrCitySql);
               while ($districtOrCity = $districtOrCityQuery->fetch_assoc()) {
@@ -43,18 +39,14 @@
   </div>
   <div class="category-search-container">
     <div class="search-form-container">
-      <form method="post" action="../process/changePassword.php">
+      <form method="post" action="../searchJob.php">
         <div class="input-group">
           <label for="category-keyword">Category</label>
           <div class="line line-light line-light-left"></div>
           <div class="select-container">
-            <select id="select-category" name="career" required>
+            <select id="select-category" name="category-search">
+              <option value="">All Categories</option>
               <?php
-              if ($industry_id !== null && $industry_id != 0) {
-                echo '<option value="' . $industry_id . '" selected>' . $row4['name'] . '</option>';
-              } else {
-                echo '<option value="">All Categories</option>';
-              }
               $jobCategorySql = "SELECT * from industry";
               $jobCategoryQuery = $conn->query($jobCategorySql);
               while ($jobCategory = $jobCategoryQuery->fetch_assoc()) {
@@ -71,18 +63,14 @@
   </div>
   <div class="job-type-search-container">
     <div class="search-form-container">
-      <form method="post" action="../process/changePassword.php">
+      <form method="post" action="../searchJob.php">
         <div class="input-group">
           <label for="type-keyword">Job Type</label>
           <div class="line line-light line-light-left"></div>
           <div class="select-container">
-            <select id="select-category" name="job_type" required>
+            <select id="select-category" name="job-type-search">
+              <option value="">All Job Types</option>
               <?php
-              if ($jobType_id !== null && $jobType_id != 0) {
-                echo '<option value="' . $jobType_id . '" selected>' . $row4['name'] . '</option>';
-              } else {
-                echo '<option value="">All Job Types</option>';
-              }
               $jobTypeSql = "SELECT * from job_type";
               $jobTypeQuery = $conn->query($jobTypeSql);
               while ($jobType = $jobTypeQuery->fetch_assoc()) {

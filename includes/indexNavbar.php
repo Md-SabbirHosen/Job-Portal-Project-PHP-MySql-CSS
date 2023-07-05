@@ -9,7 +9,7 @@
         <ul>
           <li><a href="../index.php">Home</a> </li>
           <li><a href="../findJobs.php">Find Jobs</a></li>
-          <li><a href="">Browse Companies</a></li>
+          <li><a href="../browseCompanies.php">Browse Companies</a></li>
           <li><a href="">About Us</a></li>
           <li><a href="">Contact Us</a></li>
         </ul>

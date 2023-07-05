@@ -39,8 +39,23 @@
             $sqlStatement .= "jobtitle LIKE '%$searchKeyword%'";
           }
 
+          if (isset($_POST['location-search']) && $_POST['location-search'] != '') {
+            $district_or_city_id = $_POST['location-search'];;
+            $sqlStatement = "city_id = '$district_or_city_id'";
+          }
+
+          if (isset($_POST['category-search']) && $_POST['category-search'] != '') {
+            $industry_id = $_POST['category-search'];
+            $sqlStatement = "industry_id = '$industry_id'";
+          }
+
+          if (isset($_POST['job-type-search']) && $_POST['job-type-search'] != '') {
+            $job_status_id = $_POST['job-type-search'];
+            $sqlStatement = "job_status = '$job_status_id'";
+          }
+
           if ($sqlStatement == '') {
-            $sql = "SELECT * FROM job_post WHERE id_jobpost = 1 ORDER BY createdat DESC";
+            $sql = "SELECT * FROM job_post ORDER BY createdat DESC";
           } else {
             $sql = "SELECT * FROM job_post WHERE " . $sqlStatement . " ORDER BY createdat DESC";
           }

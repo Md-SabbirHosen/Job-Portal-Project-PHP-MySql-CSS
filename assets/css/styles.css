@@ -1144,3 +1144,18 @@ select:focus {
   font-size: 2rem;
   color: var(--error-color);
 }
+
+/* browse company */
+#browse-company-page .intro-banner {
+  background-image: url("../images/browseCompany.jpg");
+  height: calc(100vh - 8rem);
+}
+
+#browse-company-page .banner-headline-text-part {
+  background-color: rgba(51, 64, 105, 0.4);
+  color: var(--lightest-color);
+  backdrop-filter: blur(3px);
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+  text-align: center;
+}
