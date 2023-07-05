@@ -1025,14 +1025,14 @@ select:focus {
   color: var(--lightest-color);
 }
 
-#find-jobs-page .page-content {
+.page-content {
   padding: 2rem 3rem;
   display: grid;
   gap: 1.5rem;
   grid-template-columns: 1fr 4fr;
 }
 
-#find-jobs-page .sidebar-container {
+.sidebar-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1158,4 +1158,46 @@ select:focus {
   box-shadow: var(--box-shadow);
   padding: 1rem;
   text-align: center;
+}
+
+#browse-company-page .page-content-right-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1rem;
+}
+.company-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--lightest-color);
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  align-self: self-start;
+}
+
+.company-item .profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.company-item .profile-container img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 0.25rem solid var(--tertiary-color);
+  box-shadow: var(--box-shadow);
+}
+
+.company-item .job-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.company-item .job-category-info,
+.company-item .location-info {
+  box-shadow: none;
 }
