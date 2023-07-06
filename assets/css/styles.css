@@ -1162,16 +1162,17 @@ select:focus {
 
 #browse-company-page .page-content-right-side {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
 }
+
 .company-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: var(--lightest-color);
-  padding: 2rem;
+  padding: 1.5rem 1rem;
   box-shadow: var(--box-shadow);
   align-self: self-start;
 }

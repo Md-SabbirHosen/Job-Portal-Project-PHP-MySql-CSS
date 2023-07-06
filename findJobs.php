@@ -23,7 +23,7 @@
 
     <section class="page-content">
       <div class="page-content-left-side">
-        <?php include "./includes/searchSidebar.php" ?>
+        <?php include "./includes/searchSidebarFindJobs.php" ?>
       </div>
       <div class="page-content-right-side">
         <div class="headline">

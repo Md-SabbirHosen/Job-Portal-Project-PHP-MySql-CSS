@@ -18,7 +18,7 @@
     </div>
     <section class="page-content">
       <div class="page-content-left-side">
-        <?php include "./includes/searchSidebar.php" ?>
+        <?php include "./includes/searchSidebarCompany.php" ?>
       </div>
 
       <div class="page-content-right-side">
@@ -26,36 +26,45 @@
         $sql = "SELECT * from company";
         $query = $conn->query($sql);
         while ($row = $query->fetch_assoc()) {
+          $hash = md5($row['id_company']);
+          $id_company = $row['id_company'];
           $industry_id = $row['industry_id'];
           $state_id = $row['state_id'];
           $city_id = $row['city_id'];
 
-          $industry = $conn->query("SELECT name from industry where id = '$industry_id'");
+          $industry = $conn->query("SELECT name from industry where id = '$industry_id'")->fetch_assoc();
           $division_or_state =
-            $conn->query("SELECT name from states where id = '$state_id'");
-          $district_or_city = $conn->query("SELECT name from districts_or_cities where id = '$city_id'");
-
-          $industry = $industry->fetch_assoc();
-          $division_or_state = $division_or_state->fetch_assoc();
-          $district_or_city = $district_or_city->fetch_assoc();
+            $conn->query("SELECT name from states where id = '$state_id'")->fetch_assoc();
+          $district_or_city = $conn->query("SELECT name from districts_or_cities where id = '$city_id'")->fetch_assoc();
         ?>
-          <div class="company-item">
-            <div class="profile-container">
-              <img src="../assets/images/<?php echo $row['profile_pic'] ?>" alt="">
-            </div>
-            <div class="job-info-container">
-              <h3> <?php echo $row['companyname'] ?> </h3>
-              <div class="job-category-info">
-                <i class="fa-solid fa-briefcase"></i>
-                <span><?php echo $industry['name'] ?></span>
+          <a href="./companyDetails.php?key=<?php echo $hash . '&id=' . $id_company ?>">
+            <div class="company-item">
+              <div class="profile-container">
+                <img src="../assets/images/<?php echo $row['profile_pic'] ?>" alt="">
               </div>
-              <div class="location-info">
-                <i class="fa-solid fa-location-dot"></i>
-                <span><?php echo $division_or_state['name'] . ', ' . $district_or_city['name']; ?></span>
+              <div class="job-info-container">
+                <h3> <?php echo $row['companyname'] ?> </h3>
+                <div class="job-category-info">
+                  <i class="fa-solid fa-briefcase"></i>
+                  <span><?php echo $industry['name'] . " industry" ?></span>
+                </div>
+                <div class="location-info">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span><?php echo $division_or_state['name'] . ', ' . $district_or_city['name']; ?></span>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
+
         <?php } ?>
       </div>
+  </div>
+  <!-- Footer -->
+  <div id="footer">
+    <!-- Footer Widgets -->
+    <?php include 'includes/indexFooterWidgets.php';
+    ?>
+    <!-- Footer Copyrights -->
+    <?php include 'includes/footer.php' ?>
   </div>
 </body>
