@@ -143,6 +143,17 @@ section {
   background: var(--error-color);
 }
 
+.glassmorphism {
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.2);
+  color: #d3cce3;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+  text-align: center;
+}
+
 /* Navbar */
 #header {
   height: 5rem;
@@ -207,7 +218,7 @@ section {
   left: 0%;
   right: 0%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .intro-banner-content {
@@ -954,14 +965,14 @@ select:focus {
   border: 1px solid var(--primary-color);
 }
 
-.job-item-container .profile-container {
+.profile-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
 
-.job-item-container .profile-container img {
+.profile-container img {
   height: 80px;
   width: 80px;
   border-radius: 50%;
@@ -1146,18 +1157,10 @@ select:focus {
 }
 
 /* browse company */
-#browse-company-page .intro-banner {
+#browse-company-page .intro-banner,
+#browse-company-details .intro-banner {
   background-image: url("../images/browseCompany.jpg");
   height: calc(100vh - 8rem);
-}
-
-#browse-company-page .banner-headline-text-part {
-  background-color: rgba(51, 64, 105, 0.4);
-  color: var(--lightest-color);
-  backdrop-filter: blur(3px);
-  box-shadow: var(--box-shadow);
-  padding: 1rem;
-  text-align: center;
 }
 
 #browse-company-page .page-content-right-side {
@@ -1201,4 +1204,30 @@ select:focus {
 .company-item .job-category-info,
 .company-item .location-info {
   box-shadow: none;
+}
+
+/* company details */
+#browse-company-details .intro-banner-content {
+  left: 25%;
+}
+#browse-company-details .banner-headline-text-part {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  box-shadow: var(--box-shadow);
+  border: 1px solid transparent;
+}
+
+#browse-company-details .job-category-info,
+#browse-company-details .location-info,
+#browse-company-details i {
+  background: #fff;
+}
+
+#browse-company-details .job-info-container {
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
 }
