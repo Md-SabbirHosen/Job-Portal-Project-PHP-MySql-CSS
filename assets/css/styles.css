@@ -1024,9 +1024,9 @@ select:focus {
   height: calc(100vh - 10rem);
 }
 
-#find-jobs-page .intro-banner-overlay {
+/* #find-jobs-page .intro-banner-overlay {
   background-color: rgba(0, 0, 0, 0.2);
-}
+} */
 
 .keywords p {
   font-weight: bold;
@@ -1125,18 +1125,21 @@ select:focus {
   border-radius: 50%;
 }
 
-.page-content-right-side .job-item-container {
+#find-jobs-page .job-item-container,
+#browse-company-details .company-details-page-content .job-item-container {
   margin-top: 1rem;
 }
 
-#find-jobs-page .job-info-container {
+#find-jobs-page .job-info-container,
+#browse-company-details .company-details-page-content .job-info-container {
   justify-content: flex-start;
   flex-direction: row;
   align-items: center;
   gap: 2rem;
 }
 
-#find-jobs-page .job-info-left-side {
+#find-jobs-page .job-info-left-side,
+#browse-company-details .company-details-page-content .job-info-left-side {
   flex: 2;
   display: flex;
   justify-content: flex-start;
@@ -1145,12 +1148,14 @@ select:focus {
   gap: 0.5rem;
 }
 
-#find-jobs-page .job-info-left-side h3 {
+#find-jobs-page .job-info-left-side h3,
+#browse-company-details .company-details-page-content .job-info-left-side h3 {
   margin: 0;
   line-height: 1.2;
 }
 
-#find-jobs-page .job-info-right-side {
+#find-jobs-page .job-info-right-side,
+#browse-company-details .company-details-page-content .job-info-right-side {
   flex: 1;
 }
 
@@ -1244,6 +1249,12 @@ select:focus {
   padding: 3rem;
 }
 
+.company-details-page-content-left-side {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
 .company-details-page-content .image-container {
   padding: 1rem 0;
 }
@@ -1253,7 +1264,7 @@ select:focus {
   height: 70vh;
 }
 
-.company-details-page-content-right-side {
+.company-details-page-content .information-wrapper {
   box-shadow: var(--box-shadow);
   padding: 1rem;
 }

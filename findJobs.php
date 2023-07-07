@@ -92,7 +92,6 @@
                 <?php
                 $deadline = date_create($row['deadline']);
                 $now = date_create(date("y-m-d"));
-
                 if ($now < $deadline) {
                   echo "<span class=" . "validity-active" . ">Active</span>";
                 } else {
