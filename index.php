@@ -10,9 +10,10 @@
     <div class="intro-banner">
       <div class="intro-banner-overlay">
         <div class="intro-banner-content">
-          <div class="container">
+          <div class="container  glassmorphism">
             <div class="banner-headline-text-part">
               <h3>Welcome to Our Job Portal</h3>
+              <div class="line line-dark"></div>
               <p> Find your dream job. Explore exciting opportunities.</p>
               <div>
                 <a href="" class="btn btn-secondary">Browse Job Listings</a>

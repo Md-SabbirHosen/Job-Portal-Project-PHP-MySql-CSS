@@ -8,9 +8,10 @@
     <div class="intro-banner">
       <div class="intro-banner-overlay">
         <div class="intro-banner-content">
-          <div class="container">
+          <div class="container glassmorphism">
             <div class="banner-headline-text-part">
               <h3>Find Nearby Jobs</h3>
+              <div class="line line-dark"></div>
               <div class="keywords">
                 <p>Trending Jobs Keywords:</p>
                 <span> Nurse, Architect, Graphic Designer, Teller, Electrical Engineer, Android Developer</span>

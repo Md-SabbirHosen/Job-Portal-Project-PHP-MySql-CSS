@@ -8,7 +8,7 @@
     <div class="intro-banner">
       <div class="intro-banner-overlay">
         <div class="intro-banner-content">
-          <div class="container">
+          <div class="container glassmorphism">
             <div class="banner-headline-text-part">
               <h3>Find Nearby Jobs</h3>
               <div class="keywords">

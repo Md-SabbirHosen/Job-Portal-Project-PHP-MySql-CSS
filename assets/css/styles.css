@@ -1103,19 +1103,25 @@ select:focus {
   padding: 0.25rem;
 }
 
-.page-content-right-side .headline {
+.page-content-right-side .headline,
+.company-details-page-content .headline {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
 }
 
-.page-content-right-side .icon-container {
+.page-content-right-side .icon-container,
+.company-details-page-content .icon-container {
   background: var(--lightest-color);
   color: var(--primary-color);
-  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 0.75rem;
   font-weight: bold;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
 }
 
@@ -1216,7 +1222,6 @@ select:focus {
   gap: 1.5rem;
   padding: 0.5rem 1rem;
   text-align: left;
-  box-shadow: var(--box-shadow);
   border: 1px solid transparent;
 }
 
@@ -1230,4 +1235,56 @@ select:focus {
   justify-content: flex-start;
   align-items: flex-start;
   gap: 1rem;
+}
+
+.company-details-page-content {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.company-details-page-content .image-container {
+  padding: 1rem 0;
+}
+
+.company-details-page-content .image-container img {
+  width: 100%;
+  height: 70vh;
+}
+
+.company-details-page-content-right-side {
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+}
+
+.information-list-container {
+  padding: 1.5rem;
+  background-color: var(--tertiary-color);
+}
+
+.information-list-container .icon-container {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.information-list-container .icon-container i {
+  font-size: 1rem;
+}
+
+.information-list-item {
+  padding: 1rem 0;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  font-weight: bold;
+  color: var(--darkest-color);
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.info-container {
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
 }

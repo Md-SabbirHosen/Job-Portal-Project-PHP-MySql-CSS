@@ -33,8 +33,8 @@
       <div class="intro-banner">
         <div class="intro-banner-overlay">
           <div class="intro-banner-content">
-            <div class="container">
-              <div class="banner-headline-text-part glassmorphism">
+            <div class="container glassmorphism">
+              <div class="banner-headline-text-part">
                 <div class="profile-container">
                   <img src="../assets/images/<?php echo $row['profile_pic'] ?>" alt="">
                 </div>
@@ -51,6 +51,77 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="company-details-page-content">
+        <div class="company-details-page-content-left-side">
+          <div class="headline">
+            <span class="icon-container">
+              <i class="fa-solid fa-circle-exclamation"></i>
+            </span>
+            <h3>About Company Details</h3>
+          </div>
+          <div class="image-container">
+            <img src="./assets/images/browseCompany.jpg" alt="">
+          </div>
+          <div class="company-about">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae sit vero excepturi! Consequuntur molestias deleniti delectus sapiente praesentium quo nulla eaque. Deserunt nobis incidunt eligendi aspernatur voluptatibus accusantium commodi nulla qui saepe consequatur facere doloribus dolores veritatis quas adipisci natus, earum iure accusamus? Incidunt natus corporis illo. Iusto ad quod numquam libero commodi, quibusdam possimus error nemo labore earum quas quo et enim sed rem odit, delectus ipsa. Exercitationem molestias sequi alias magni libero praesentium totam blanditiis obcaecati atque dignissimos repellat asperiores, eaque assumenda accusantium voluptatibus molestiae sint maxime et tempore id magnam vitae! Modi aspernatur rerum maiores quia minima.</p>
+          </div>
+        </div>
+        <div class="company-details-page-content-right-side">
+          <div class="information-container">
+            <div class="headline">
+              <h3>More Information</h3>
+            </div>
+            <ul class="information-list-container">
+              <li class="information-list-item">
+                <div class=" icon-container">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="info-container">
+                  <span>Phone Number:</span>
+                  <span><?php echo $row['contactno'] ?></span>
+                </div>
+              </li>
+              <li class="information-list-item">
+                <div class=" icon-container">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="info-container">
+                  <span>Email:</span>
+                  <span><?php echo $row['email'] ?></span>
+                </div>
+              </li>
+              <li class="information-list-item">
+                <div class=" icon-container">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="info-container">
+                  <span>Location:</span>
+                  <span><?php echo $row2['name'] ?></span>
+                </div>
+              </li>
+              <li class="information-list-item">
+                <div class=" icon-container">
+                  <i class="fa-solid fa-globe"></i>
+                </div>
+                <div class="info-container">
+                  <span>Website:</span>
+                  <span><?php echo $row['website'] ?></span>
+                </div>
+              </li>
+              <li class="information-list-item">
+                <div class=" icon-container">
+                  <i class="fa-solid fa-building"></i>
+                </div>
+                <div class="info-container">
+                  <span>Established:</span>
+                  <span><?php echo $row['esta_date'] ?></span>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
