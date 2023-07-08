@@ -79,10 +79,10 @@
           <div class="image-container">
             <img src="./assets/images/aboutJob.jpg" alt="">
           </div>
-          <div class="company-details-page-content-left-side-jobs-description">
+          <div class="job-details-jobs-description">
             <div class="headline">
               <span class="icon-container">
-                <i class="fa-solid fa-briefcase"></i>
+                <i class="fa-solid fa-file-contract"></i>
               </span>
               <h3>Jobs Description</h3>
             </div>
@@ -90,10 +90,10 @@
               <span><?php echo $row['description'] ?></span>
             </div>
           </div>
-          <div class="company-details-page-content-left-side-jobs-responsibility">
+          <div class="job-details-jobs-responsibility">
             <div class="headline">
               <span class="icon-container">
-                <i class="fa-solid fa-briefcase"></i>
+                <i class="fa-solid fa-suitcase"></i>
               </span>
               <h3>Primary Responsibilities</h3>
             </div>
@@ -101,7 +101,7 @@
               <span><?php echo $row['responsibility'] ?></span>
             </div>
           </div>
-          <div class="company-details-page-content-left-side-jobs-skills">
+          <div class="job-details-jobs-skills">
             <div class="headline">
               <span class="icon-container">
                 <i class="fa-solid fa-briefcase"></i>
@@ -114,7 +114,7 @@
           </div>
         </div>
 
-        <div class="company-details-page-content-right-side">
+        <div class="job-details-page-content-right-side">
           <div class="information-wrapper">
             <div class="information-container">
               <div class="headline">
@@ -123,7 +123,7 @@
               <ul class="information-list-container">
                 <li class="information-list-item">
                   <div class=" icon-container">
-                    <i class="fa-solid fa-phone"></i>
+                    <i class="fa-solid fa-briefcase"></i>
                   </div>
                   <div class="info-container">
                     <span>Job Vacancy:</span>
@@ -132,7 +132,7 @@
                 </li>
                 <li class="information-list-item">
                   <div class=" icon-container">
-                    <i class="fa-solid fa-envelope"></i>
+                    <i class="fa-solid fa-trophy"></i>
                   </div>
                   <div class="info-container">
                     <span>Experience:</span>
@@ -150,7 +150,7 @@
                 </li>
                 <li class="information-list-item">
                   <div class=" icon-container">
-                    <i class="fa-solid fa-globe"></i>
+                    <i class="fa-solid fa-briefcase"></i>
                   </div>
                   <div class="info-container">
                     <span>Jobs Type:</span>
@@ -159,7 +159,7 @@
                 </li>
                 <li class="information-list-item">
                   <div class=" icon-container">
-                    <i class="fa-solid fa-building"></i>
+                    <i class="fa-solid fa-ribbon"></i>
                   </div>
                   <div class="info-container">
                     <span>Qualification:</span>
@@ -168,7 +168,7 @@
                 </li>
                 <li class="information-list-item">
                   <div class=" icon-container">
-                    <i class="fa-solid fa-building"></i>
+                    <i class="fa-solid fa-clock"></i>
                   </div>
                   <div class="info-container">
                     <span>Date Posted:</span>
@@ -177,6 +177,26 @@
                 </li>
               </ul>
             </div>
+          </div>
+          <div class="information-wrapper">
+            <div class="icon-with-title">
+              <div class="icon-container">
+                <i class="fa-solid fa-money-check-dollar"></i>
+              </div>
+              <h3>Offered Salary</h3>
+            </div>
+            <div class="line line-light line-light-left"></div>
+            <span> <?php echo "BDT" . $row['minimumsalary'] . " - " . "BDT" . $row['maximumsalary'] ?></span>
+          </div>
+          <div class="information-wrapper">
+            <div class="icon-with-deadline">
+              <div class="icon-container">
+                <i class="fa-solid fa-calendar-week"></i>
+              </div>
+              <h3>Deadline</h3>
+            </div>
+            <div class="line line-light line-light-left"></div>
+            <span><?php echo $row['deadline'] ?></span>
           </div>
         </div>
       </div>

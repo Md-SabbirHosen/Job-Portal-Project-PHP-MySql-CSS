@@ -1110,7 +1110,8 @@ select:focus {
 }
 
 .page-content-right-side .icon-container,
-.company-details-page-content .icon-container {
+.company-details-page-content .icon-container,
+.job-details-page-content-right-side .icon-container {
   background: var(--lightest-color);
   color: var(--primary-color);
   display: flex;
@@ -1287,13 +1288,13 @@ select:focus {
   background-color: var(--tertiary-color);
 }
 
-.information-list-container .icon-container {
+.information-wrapper .icon-container {
   height: 30px;
   width: 30px;
   border-radius: 50%;
 }
 
-.information-list-container .icon-container i {
+.information-wrapper .icon-container i {
   font-size: 1rem;
 }
 
@@ -1314,3 +1315,29 @@ select:focus {
 }
 
 /* browse job details */
+.description-wrapper {
+  padding: 2rem 0 0;
+}
+
+.job-details-page-content-right-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.job-details-page-content-right-side .icon-with-title,
+.job-details-page-content-right-side .icon-with-deadline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-with-deadline i,
+.icon-with-title i {
+  padding-bottom: 0.5rem;
+}
+
+.information-wrapper span {
+  color: var(--darkest-color);
+  font-weight: bold;
+}
