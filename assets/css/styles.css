@@ -1007,7 +1007,8 @@ select:focus {
 .job-category-info,
 .date-info,
 .salary-info,
-.location-info {
+.location-info,
+.company-name-info {
   font-size: 0.8rem;
   font-weight: bold;
   padding: 0 0.5rem;
@@ -1019,14 +1020,11 @@ select:focus {
 }
 
 /* Find Jobs */
-#find-jobs-page .intro-banner {
+#find-jobs-page .intro-banner,
+#browse-job-details .intro-banner {
   background-image: url("../images/findJobsWallpaper.jpg");
   height: calc(100vh - 10rem);
 }
-
-/* #find-jobs-page .intro-banner-overlay {
-  background-color: rgba(0, 0, 0, 0.2);
-} */
 
 .keywords p {
   font-weight: bold;
@@ -1218,10 +1216,19 @@ select:focus {
 }
 
 /* company details */
-#browse-company-details .intro-banner-content {
+#browse-company-details .intro-banner-content,
+#browse-job-details .intro-banner-content {
   left: 25%;
 }
-#browse-company-details .banner-headline-text-part {
+
+#browse-company-details .intro-banner-content h3,
+#browse-job-details .intro-banner-content h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+#browse-company-details .banner-headline-text-part,
+#browse-job-details .banner-headline-text-part {
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -1232,11 +1239,17 @@ select:focus {
 
 #browse-company-details .job-category-info,
 #browse-company-details .location-info,
-#browse-company-details i {
+#browse-company-details i,
+#browse-job-details .job-status,
+#browse-job-details .company-name-info,
+#browse-job-details .location-info,
+#browse-job-details i {
   background: #fff;
 }
 
-#browse-company-details .job-info-container {
+#browse-company-details .job-info-container,
+#browse-jobs-page .job-info-container,
+#browse-job-details .job-info-container {
   justify-content: flex-start;
   align-items: flex-start;
   gap: 1rem;
@@ -1299,3 +1312,5 @@ select:focus {
   display: flex;
   flex-direction: column;
 }
+
+/* browse job details */

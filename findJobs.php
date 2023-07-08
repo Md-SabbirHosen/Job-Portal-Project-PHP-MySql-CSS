@@ -39,6 +39,8 @@
         $result = $conn->query($sql);
 
         while ($row = $result->fetch_assoc()) {
+          $hash = md5($row['id_jobpost']);
+          $job_id = $row['id_jobpost'];
           $id_company = $row['id_company'];
           $jobtitle = $row['jobtitle'];
           $city_id = $row['city_id'];
@@ -58,49 +60,51 @@
           $profile_pic = $profile_pic->fetch_assoc();
 
         ?>
-          <div class="job-item-container">
-            <div class="profile-container">
-              <img src="../assets/images/<?php echo $profile_pic['profile_pic'] ?>" alt="">
-            </div>
-            <div class="job-info-container">
-              <div class="job-info-left-side">
-                <div class="job-status">
-                  <i class="fa-solid fa-briefcase"></i>
-                  <span><?php echo $job_type['type'] ?></span>
-                </div>
-                <h3> <?php echo $jobtitle; ?> </h3>
-                <div class="others-info">
-                  <div class="job-category-info">
+          <a href="./jobDetails.php?key=<?php echo $hash . '&id=' . $job_id ?>">
+            <div class="job-item-container">
+              <div class="profile-container">
+                <img src="../assets/images/<?php echo $profile_pic['profile_pic'] ?>" alt="">
+              </div>
+              <div class="job-info-container">
+                <div class="job-info-left-side">
+                  <div class="job-status">
                     <i class="fa-solid fa-briefcase"></i>
-                    <span><?php echo $job_category['name'] ?></span>
+                    <span><?php echo $job_type['type'] ?></span>
                   </div>
-                  <div class="salary-info">
-                    <i class="fa-solid fa-money-check-dollar"></i>
-                    <span><?php echo $minimum_salary . "-" . $maximum_salary ?></span>
+                  <h3> <?php echo $jobtitle; ?> </h3>
+                  <div class="others-info">
+                    <div class="job-category-info">
+                      <i class="fa-solid fa-briefcase"></i>
+                      <span><?php echo $job_category['name'] ?></span>
+                    </div>
+                    <div class="salary-info">
+                      <i class="fa-solid fa-money-check-dollar"></i>
+                      <span><?php echo $minimum_salary . "-" . $maximum_salary ?></span>
+                    </div>
+                    <div class="location-info">
+                      <i class="fa-solid fa-location-dot"></i>
+                      <span><?php echo $location['name'] ?></span>
+                    </div>
                   </div>
-                  <div class="location-info">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span><?php echo $location['name'] ?></span>
+                  <div class="date-info">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span><?php echo $create_date; ?></span>
                   </div>
                 </div>
-                <div class="date-info">
-                  <i class="fa-solid fa-calendar-days"></i>
-                  <span><?php echo $create_date; ?></span>
+                <div class="job-info-right-side">
+                  <?php
+                  $deadline = date_create($row['deadline']);
+                  $now = date_create(date("y-m-d"));
+                  if ($now < $deadline) {
+                    echo "<span class=" . "validity-active" . ">Active</span>";
+                  } else {
+                    echo "<span class=" . "validity-expired" . ">Expired</span>";
+                  }
+                  ?>
                 </div>
-              </div>
-              <div class="job-info-right-side">
-                <?php
-                $deadline = date_create($row['deadline']);
-                $now = date_create(date("y-m-d"));
-                if ($now < $deadline) {
-                  echo "<span class=" . "validity-active" . ">Active</span>";
-                } else {
-                  echo "<span class=" . "validity-expired" . ">Expired</span>";
-                }
-                ?>
               </div>
             </div>
-          </div>
+          </a>
         <?php } ?>
       </div>
     </section>

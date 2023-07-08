@@ -4,7 +4,6 @@
 
 <body>
   <?php include "./includes/indexNavbar.php" ?>
-
   <div id="home-page">
     <!-- Intro Banner -->
     <div class="intro-banner">
