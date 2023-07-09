@@ -68,6 +68,8 @@ textarea {
 }
 
 .btn {
+  font-size: 1rem;
+  text-align: center;
   cursor: pointer;
   font-weight: bold;
   display: inline-block;
@@ -1327,17 +1329,30 @@ select:focus {
 
 .job-details-page-content-right-side .icon-with-title,
 .job-details-page-content-right-side .icon-with-deadline {
+  background-color: var(--tertiary-color);
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.icon-with-deadline i,
-.icon-with-title i {
-  padding-bottom: 0.5rem;
+.icon-with-deadline + span,
+.icon-with-title + span {
+  box-shadow: var(--box-shadow);
 }
 
 .information-wrapper span {
   color: var(--darkest-color);
   font-weight: bold;
+}
+
+.apply-save-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.apply-save-box a {
+  border-radius: 5px;
 }

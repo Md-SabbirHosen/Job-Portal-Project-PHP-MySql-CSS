@@ -116,6 +116,35 @@
 
         <div class="job-details-page-content-right-side">
           <div class="information-wrapper">
+            <div class="apply-save-box">
+              <?php if ($_SESSION['role_id'] == 1) : ?>
+                <?php
+                $id_user = $_SESSION['id_user'];
+                $applied = $conn->query("SELECT  * from applied_jobposts where id_user = '$id_user' and id_jobpost ='$job_id'");
+                if ($applied->num_rows > 0) :
+                ?>
+                  <a href="#" class="btn btn-secondary-form">Applied<i class="utf-verified-badge"></i></a>
+                  <?php else :
+                  $deadline = date_create($row['deadline']);
+                  $now = date_create(date("Y-m-d"));
+                  if ($now > $deadline) :
+                  ?>
+                    <a href="#" class="btn btn-secondary-form">Applied<i class="utf-verified-badge"></i></a>
+                  <?php else : ?>
+                    <a href="#" class="btn btn-secondary-form">Apply Job<i class="utf-verified-badge"></i></a>
+                  <?php endif; ?>
+              <?php endif;
+              endif; ?>
+              <?php $saved = $conn->query("SELECT * from saved_jobposts where id_user ='$id_user' and id_jobpost ='$job_id' ");
+              if ($saved->num_rows > 0) :
+              ?>
+                <a href="#" class="btn btn-secondary-form">Saved<i class="utf-verified-badge"></i></a>
+              <?php else : ?>
+                <a href="#" class="btn btn-secondary-form">Save Job<i class="utf-verified-badge"></i></a>
+              <?php endif; ?>
+            </div>
+          </div>
+          <div class="information-wrapper">
             <div class="information-container">
               <div class="headline">
                 <h3>Jobs Information</h3>
@@ -185,7 +214,6 @@
               </div>
               <h3>Offered Salary</h3>
             </div>
-            <div class="line line-light line-light-left"></div>
             <span> <?php echo "BDT" . $row['minimumsalary'] . " - " . "BDT" . $row['maximumsalary'] ?></span>
           </div>
           <div class="information-wrapper">
@@ -195,16 +223,12 @@
               </div>
               <h3>Deadline</h3>
             </div>
-            <div class="line line-light line-light-left"></div>
             <span><?php echo $row['deadline'] ?></span>
           </div>
         </div>
       </div>
     </div>
 
-  <?php else :
-    echo "No id is found";
-  ?>
 
 
   <?php endif; ?>
