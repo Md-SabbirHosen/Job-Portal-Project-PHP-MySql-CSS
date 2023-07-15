@@ -1,7 +1,6 @@
 <?php include "./includes/conn.php" ?>
 <?php include "./includes/indexHeader.php"; ?>
 
-
 <body>
   <?php include "./includes/indexNavbar.php" ?>
   <div id="home-page">

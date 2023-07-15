@@ -117,25 +117,29 @@
         <div class="job-details-page-content-right-side">
           <div class="information-wrapper">
             <div class="apply-save-box">
-              <?php if ($_SESSION['role_id'] == 1) : ?>
+              <?php
+              $id_user = "";
+              if (isset($_SESSION['role_id']) && $_SESSION['role_id'] == 1) :  ?>
                 <?php
                 $id_user = $_SESSION['id_user'];
                 $applied = $conn->query("SELECT  * from applied_jobposts where id_user = '$id_user' and id_jobpost ='$job_id'");
                 if ($applied->num_rows > 0) :
                 ?>
                   <a href="#" class="btn btn-secondary-form">Applied<i class="utf-verified-badge"></i></a>
+
                   <?php else :
                   $deadline = date_create($row['deadline']);
                   $now = date_create(date("Y-m-d"));
                   if ($now > $deadline) :
                   ?>
-                    <a href="#" class="btn btn-secondary-form">Applied<i class="utf-verified-badge"></i></a>
+                    <a href="#" class="btn btn-secondary-form">Expired<i class="utf-verified-badge"></i></a>
                   <?php else : ?>
-                    <a href="#" class="btn btn-secondary-form">Apply Job<i class="utf-verified-badge"></i></a>
+                    <a href="./process/applyJob.php?key=<?php echo md5($job_id) . '&id=' . $job_id . '&cid=' . $company_id ?>" class="btn btn-secondary-form">Apply Job<i class="utf-verified-badge"></i></a>
                   <?php endif; ?>
               <?php endif;
               endif; ?>
-              <?php $saved = $conn->query("SELECT * from saved_jobposts where id_user ='$id_user' and id_jobpost ='$job_id' ");
+              <?php
+              $saved = $conn->query("SELECT * from saved_jobposts where id_user ='$id_user' and id_jobpost ='$job_id' ");
               if ($saved->num_rows > 0) :
               ?>
                 <a href="#" class="btn btn-secondary-form">Saved<i class="utf-verified-badge"></i></a>
