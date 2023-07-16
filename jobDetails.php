@@ -126,7 +126,6 @@
                 if ($applied->num_rows > 0) :
                 ?>
                   <a href="#" class="btn btn-secondary-form">Applied<i class="utf-verified-badge"></i></a>
-
                   <?php else :
                   $deadline = date_create($row['deadline']);
                   $now = date_create(date("Y-m-d"));
@@ -144,7 +143,7 @@
               ?>
                 <a href="#" class="btn btn-secondary-form">Saved<i class="utf-verified-badge"></i></a>
               <?php else : ?>
-                <a href="#" class="btn btn-secondary-form">Save Job<i class="utf-verified-badge"></i></a>
+                <a href="./process/saveJob.php?key=<?php echo md5($job_id)  . "&id=" . $job_id  ?>" class="btn btn-secondary-form">Save Job<i class="utf-verified-badge"></i></a>
               <?php endif; ?>
             </div>
           </div>
