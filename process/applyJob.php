@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
       header("location: ../dashboard/myresume.php");
       exit();
     } else {
-      $sql = "insert into applied_jobposts (id_jobpost,id_user,id_company,createdat) values('$id_jobpost','$id_company','$id_user','$createdat')";
+      $sql = "insert into applied_jobposts (id_jobpost,id_user,id_company,createdat) values('$id_jobpost','$id_user','$id_company','$createdat')";
 
       $conn->query($sql);
 

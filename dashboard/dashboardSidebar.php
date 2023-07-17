@@ -55,7 +55,7 @@
       <li><a href="manageJobs.php"><span class="icon-container">
             <i class="fa-solid fa-file-pen"></i>
           </span>Manage Jobs</a></li>
-      <li><a href="myResume.php"><span class="icon-container">
+      <li><a href="./manageApplications.php"><span class="icon-container">
             <i class="fa-sharp fa-solid fa-file-pdf"></i>
           </span>Manage Applications</a></li>
       <li><a href="editProfile.php"><span class="icon-container">

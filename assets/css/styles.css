@@ -963,6 +963,10 @@ select:focus {
   transition: all 0.3s ease-in;
 }
 
+.manage-job-content-container .job-item-container {
+  margin: 1rem 0;
+}
+
 .job-item-container:hover {
   border: 1px solid var(--primary-color);
 }
