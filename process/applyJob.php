@@ -2,7 +2,6 @@
 
 if (isset($_GET['id'])) {
   if (!isset($_SESSION['email'])) {
-    $_SESSION['email'] = "Please log in to apply";
     header("location: ../login.php");
     exit();
   } else {

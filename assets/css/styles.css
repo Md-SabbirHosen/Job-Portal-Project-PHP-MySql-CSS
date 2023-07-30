@@ -92,6 +92,10 @@ textarea {
   padding: 1rem;
 }
 
+.btn-green {
+  box-shadow: none;
+}
+
 .btn:hover {
   background-color: var(--secondary-color);
 }
@@ -1002,6 +1006,7 @@ select:focus {
 }
 
 .title-with-job-status,
+.title-with-status,
 .others-info {
   display: flex;
   align-items: center;
@@ -1359,4 +1364,12 @@ select:focus {
 
 .apply-save-box a {
   border-radius: 5px;
+}
+
+/* manage applications */
+.manage-jobs-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  overflow-y: scroll;
 }

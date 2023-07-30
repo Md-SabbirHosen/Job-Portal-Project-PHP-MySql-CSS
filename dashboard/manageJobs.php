@@ -1,5 +1,4 @@
 <?php include "../includes/conn.php"; ?>
-
 <?php include "../includes/indexHeader.php" ?>
 
 <body>
@@ -33,7 +32,6 @@
         $job_category = $job_category->fetch_assoc();
         $job_type = $job_type->fetch_assoc();
         $profile_pic = $profile_pic->fetch_assoc();
-
       ?>
         <div class="job-item-container">
           <div class="profile-container">
