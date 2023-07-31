@@ -1019,7 +1019,11 @@ select:focus {
 .date-info,
 .salary-info,
 .location-info,
-.company-name-info {
+.company-name-info,
+.contact-info,
+.education-info,
+.email-info,
+.applicants-info {
   font-size: 0.8rem;
   font-weight: bold;
   padding: 0 0.5rem;
@@ -1367,9 +1371,44 @@ select:focus {
 }
 
 /* manage applications */
-.manage-jobs-container {
+.manage-jobs-container,
+.view-applicants-container {
   display: flex;
   flex-direction: column;
   padding: 2rem;
   overflow-y: scroll;
+}
+
+.manage-jobs-container > div,
+.view-applicants-container > div {
+  margin: 0.5rem;
+}
+
+.view-applicants-container .job-info-container {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.view-applicants-container .job-info-container-left-side {
+  display: grid;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.25rem;
+}
+
+.view-applicants-container .job-info-container-right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.view-applicants-container .contact-info,
+.education-info,
+.email-info,
+.applicants-info,
+.location-info {
+  box-shadow: none;
+  justify-content: flex-start;
+  font-size: 0.9rem;
 }
