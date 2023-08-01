@@ -60,6 +60,33 @@ textarea {
   resize: none;
 }
 
+table {
+  margin-top: 1rem;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+th {
+  text-align: left;
+  background-color: var(--dark-color);
+  color: white;
+}
+
 .container {
   max-width: var(--max-width);
   margin: auto;
@@ -83,6 +110,11 @@ textarea {
 
 .btn-secondary {
   border-radius: 0;
+}
+.btn-optional {
+  font-size: 0.75rem;
+  border-radius: 0;
+  padding: 0.25rem;
 }
 
 .btn-secondary-form {
@@ -1372,7 +1404,8 @@ select:focus {
 
 /* manage applications */
 .manage-jobs-container,
-.view-applicants-container {
+.view-applicants-container,
+.all-jobs-container {
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -1411,4 +1444,18 @@ select:focus {
   box-shadow: none;
   justify-content: flex-start;
   font-size: 0.9rem;
+}
+
+/* Admin panel-all jobs */
+.all-jobs-container {
+  padding: 1rem;
+}
+.action-button a:first-child {
+  margin-bottom: 0.5rem;
+}
+.action-button a:last-child {
+  margin-top: 0.5rem;
+}
+.action-button a {
+  width: 4rem;
 }

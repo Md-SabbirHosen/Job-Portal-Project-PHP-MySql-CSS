@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2023 at 01:49 PM
+-- Generation Time: Aug 01, 2023 at 10:05 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -24,6 +24,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id_admin` int(11) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `fullname` text DEFAULT NULL,
+  `profile_pic` text DEFAULT 'user.png',
+  `email` text NOT NULL,
+  `createdat` date NOT NULL,
+  `gender` text DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `role_id` int(11) NOT NULL DEFAULT 3,
+  `contactno` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `password`, `fullname`, `profile_pic`, `email`, `createdat`, `gender`, `dob`, `address`, `role_id`, `contactno`) VALUES
+(1, '$2y$10$43twtuUQ9atn40sjbX/Cg.c44Mi1YIIDoqQonaWuDDhBEr6A4zcsu', 'admin sabbir', 'ae8224cf835484d83e107c219b3fa019male6.jpg', 'adminsabbir@gmail.com', '0000-00-00', 'Male', NULL, NULL, 3, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `applied_jobposts`
 --
 
@@ -35,6 +62,15 @@ CREATE TABLE `applied_jobposts` (
   `status` int(11) DEFAULT NULL,
   `createdat` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `applied_jobposts`
+--
+
+INSERT INTO `applied_jobposts` (`id_applied`, `id_jobpost`, `id_user`, `id_company`, `status`, `createdat`) VALUES
+(0, 6, 8, 4, NULL, '2023-07-31 00:00:00'),
+(0, 6, 9, 4, NULL, '2023-07-31 00:00:00'),
+(0, 6, 10, 4, NULL, '2023-08-01 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -207,13 +243,14 @@ CREATE TABLE `education` (
 --
 
 INSERT INTO `education` (`id`, `name`) VALUES
-(1, 'Associate\'s Degree'),
+(1, 'Diploma Degree'),
 (2, 'Bachelor\'s Degree'),
 (3, 'Master\'s Degree'),
 (4, 'Professional Degree'),
 (5, 'Doctoral Degree'),
-(6, 'High School Student'),
-(7, 'Undergraduate');
+(6, 'Higher Secondary Education'),
+(7, 'Undergraduate'),
+(8, 'Secondary Education');
 
 -- --------------------------------------------------------
 
@@ -289,10 +326,10 @@ CREATE TABLE `job_post` (
 --
 
 INSERT INTO `job_post` (`id_jobpost`, `id_company`, `jobtitle`, `industry_id`, `job_status`, `description`, `minimumsalary`, `maximumsalary`, `state_id`, `city_id`, `createdat`, `experience`, `edu_qualification`, `skills_ability`, `responsibility`, `deadline`) VALUES
-(3, 1, 'Front End Developer (Angular)', 14, 1, 'We hire Front End developers (Angular) with experience in enterprise systems. You will work with, learn from, and contribute to a talented international software team. We build enterprise trading and financial applications. Our team is composed of experts in multiple disciplines working remotely from anywhere in the world. You should be an expert in Angular or similar front end technologies and excel at working through the full development cycle, from concept and design to coding, testing, software implementation and maintenance. This is a full-time position, working from home', '23000.00', '37000.00', 3, 18, '2023-06-30 15:50:04', 1, '2', 'Fluent in HTML5, CSS3 and JavaScript (ES5 / ES6)\r\nFluent in Angular10 and above JavaScript framework\r\nIn-depth understanding of OOP and SOLID programming\r\nFluent in rxjs and ngrx\r\nFluent in working with forms\r\nFamiliarity with dynamic loading\r\nFamiliarity with Responsive design concepts\r\nFamiliarity with at least one CSS framework such as Bootstrap, Material\r\nFull familiarity with RESTful API concepts\r\nFamiliarity and experience working with Git', 'Mentoring and guiding other engineers to best software industry practices, tools and processes.\r\nYour role in the company will be to join our full-stack development group and work in scrum teams to accomplish your teams goals.\r\nA great opportunity for career development and growth. We provide training and mentorship as well as grow your development skills in advanced programming languages and technologies.\r\nMust provide own work environment: Windows machine, highspeed Internet, and a quiet work area at home.', '2023-07-03'),
-(4, 1, 'Video Editor & Digital Marketer', 9, 1, 'This position will be responsible for regularly editing and creating videos for our Company. In addition, the position will be in charge of launching campaigns with digital marketing strategy to drive traffic and revenue. Candidates must be fully proficient in English & Bangla.', '30000.00', '50000.00', 3, 18, '2023-07-01 11:46:45', 2, '2', 'The applicants should have experience in the following area(s): Digital Marketing, Digital Marketing (Social Media Marketing), video editing, Video Editor, Video Editor & Graphics designer', 'Develop digital marketing strategies to enhance branding, implement digital marketing sales plans, creative planning, and execution of all the digital marketing campaigns, including good knowledge of content writing.\r\nDevelop and execute digital marketing strategies across multiple channels, including social media, email marketing, search engine marketing, and display advertising.\r\nManage Facebook page (Example: Comments reply, Checking inbox), Instagram etc.\r\nDesign visually appealing graphics and marketing materials, such as banners, info graphics, and social media visuals.', '2023-07-30'),
-(5, 2, 'Senior UI/UX Designer', 9, 1, 'We are seeking a highly skilled and experienced Senior UI/UX Designer specializing in web and mobile applications to join our innovative team at Enosis Solutions. As a Senior UI/UX Designer, you will be responsible for creating visually stunning and user-friendly interfaces for our web and mobile applications. You will work closely with cross-functional teams, including developers, project managers, and stakeholders to create seamless and engaging user interfaces that align with brand identity and business objectives.', '45000.00', '70000.00', 3, 18, '2023-07-04 14:46:27', 3, '2', 'Bachelor degree in a relevant field or equivalent educational qualification.\r\nProven experience as a UI/UX designer, with a strong portfolio showcasing mobile apps and web design projects.\r\nProficiency in industry-standard design tools such as Sketch, Adobe Creative Suite, Figma, or similar software.\r\nStrong knowledge of mobile app and web development processes and technologies.\r\nSolid understanding of user-centered design principles and best practices.\r\nFamiliarity with front-end development languages (HTML, CSS, JavaScript) is a plus.\r\nExcellent communication and presentation skills, with the ability to articulate design decisions and collaborate effectively with cross-functional teams.\r\nAbility to work independently and manage multiple projects and priorities in a fast-paced environment.\r\nStrong analytical and problem-solving abilities, with a keen eye for detail.', 'We are seeking a highly skilled and experienced Senior UI/UX Designer specializing in web and mobile applications to join our innovative team at Enosis Solutions. As a Senior UI/UX Designer, you will be responsible for creating visually stunning and user-friendly interfaces for our web and mobile applications. You will work closely with cross-functional teams, including developers, project managers, and stakeholders to create seamless and engaging user interfaces that align with brand identity and business objectives.', '2023-07-30'),
-(6, 4, 'Filed Operator (Operation), BOGCL', 15, 1, 'Bashundhara Oil and Gas Company Ltd., a subsidiary of Bashundhara Group, is looking for some competent candidates for the position of \"Filed Operator (Operation)- BOGCL\" for its Bitumen Plant in Keranigonj.', '70000.00', '100000.00', 3, 18, '2023-07-04 15:07:20', 5, '2', 'Minimum 5 years experience in Process Plant as Field Operator. Experience in Fuel or Edible oil refinery are preferred. For more experienced personnel, educational qualification could be relaxed.', 'Receiving shift information from previous shift personnel properly and act accordingly.\r\nTake data & monitor process parameter. Inform shift engineer about any anomaly & take proper steps to maintain process parameter within standard value as per instruction from shift engineer.\r\nTake proper actions at the time of plant start up, shut down and emergency situation according to the standard operating procedure as per instruction from shift engineer.\r\nHanding over responsibilities to the next shift personnel.', '2023-07-30');
+(3, 1, 'Front End Developer (Angular)', 14, 1, 'We hire Front End developers (Angular) with experience in enterprise systems. You will work with, learn from, and contribute to a talented international software team. We build enterprise trading and financial applications. Our team is composed of experts in multiple disciplines working remotely from anywhere in the world. You should be an expert in Angular or similar front end technologies and excel at working through the full development cycle, from concept and design to coding, testing, software implementation and maintenance. This is a full-time position, working from home', '23000.00', '37000.00', 3, 18, '2023-06-30 15:50:04', 1, '2', 'Fluent in HTML5, CSS3 and JavaScript (ES5 / ES6)\r\nFluent in Angular10 and above JavaScript framework\r\nIn-depth understanding of OOP and SOLID programming\r\nFluent in rxjs and ngrx\r\nFluent in working with forms\r\nFamiliarity with dynamic loading\r\nFamiliarity with Responsive design concepts\r\nFamiliarity with at least one CSS framework such as Bootstrap, Material\r\nFull familiarity with RESTful API concepts\r\nFamiliarity and experience working with Git', 'Mentoring and guiding other engineers to best software industry practices, tools and processes.\r\nYour role in the company will be to join our full-stack development group and work in scrum teams to accomplish your teams goals.\r\nA great opportunity for career development and growth. We provide training and mentorship as well as grow your development skills in advanced programming languages and technologies.\r\nMust provide own work environment: Windows machine, highspeed Internet, and a quiet work area at home.', '2023-08-25'),
+(4, 1, 'Video Editor & Digital Marketer', 9, 1, 'This position will be responsible for regularly editing and creating videos for our Company. In addition, the position will be in charge of launching campaigns with digital marketing strategy to drive traffic and revenue. Candidates must be fully proficient in English & Bangla.', '30000.00', '50000.00', 3, 18, '2023-07-01 11:46:45', 2, '2', 'The applicants should have experience in the following area(s): Digital Marketing, Digital Marketing (Social Media Marketing), video editing, Video Editor, Video Editor & Graphics designer', 'Develop digital marketing strategies to enhance branding, implement digital marketing sales plans, creative planning, and execution of all the digital marketing campaigns, including good knowledge of content writing.\r\nDevelop and execute digital marketing strategies across multiple channels, including social media, email marketing, search engine marketing, and display advertising.\r\nManage Facebook page (Example: Comments reply, Checking inbox), Instagram etc.\r\nDesign visually appealing graphics and marketing materials, such as banners, info graphics, and social media visuals.', '2023-07-25'),
+(5, 2, 'Senior UI/UX Designer', 9, 1, 'We are seeking a highly skilled and experienced Senior UI/UX Designer specializing in web and mobile applications to join our innovative team at Enosis Solutions. As a Senior UI/UX Designer, you will be responsible for creating visually stunning and user-friendly interfaces for our web and mobile applications. You will work closely with cross-functional teams, including developers, project managers, and stakeholders to create seamless and engaging user interfaces that align with brand identity and business objectives.', '45000.00', '70000.00', 3, 18, '2023-07-04 14:46:27', 3, '2', 'Bachelor degree in a relevant field or equivalent educational qualification.\r\nProven experience as a UI/UX designer, with a strong portfolio showcasing mobile apps and web design projects.\r\nProficiency in industry-standard design tools such as Sketch, Adobe Creative Suite, Figma, or similar software.\r\nStrong knowledge of mobile app and web development processes and technologies.\r\nSolid understanding of user-centered design principles and best practices.\r\nFamiliarity with front-end development languages (HTML, CSS, JavaScript) is a plus.\r\nExcellent communication and presentation skills, with the ability to articulate design decisions and collaborate effectively with cross-functional teams.\r\nAbility to work independently and manage multiple projects and priorities in a fast-paced environment.\r\nStrong analytical and problem-solving abilities, with a keen eye for detail.', 'We are seeking a highly skilled and experienced Senior UI/UX Designer specializing in web and mobile applications to join our innovative team at Enosis Solutions. As a Senior UI/UX Designer, you will be responsible for creating visually stunning and user-friendly interfaces for our web and mobile applications. You will work closely with cross-functional teams, including developers, project managers, and stakeholders to create seamless and engaging user interfaces that align with brand identity and business objectives.', '2023-08-25'),
+(6, 4, 'Filed Operator (Operation), BOGCL', 15, 1, 'Bashundhara Oil and Gas Company Ltd., a subsidiary of Bashundhara Group, is looking for some competent candidates for the position of \"Filed Operator (Operation)- BOGCL\" for its Bitumen Plant in Keranigonj.', '70000.00', '100000.00', 3, 18, '2023-07-04 15:07:20', 5, '2', 'Minimum 5 years experience in Process Plant as Field Operator. Experience in Fuel or Edible oil refinery are preferred. For more experienced personnel, educational qualification could be relaxed.', 'Receiving shift information from previous shift personnel properly and act accordingly.\r\nTake data & monitor process parameter. Inform shift engineer about any anomaly & take proper steps to maintain process parameter within standard value as per instruction from shift engineer.\r\nTake proper actions at the time of plant start up, shut down and emergency situation according to the standard operating procedure as per instruction from shift engineer.\r\nHanding over responsibilities to the next shift personnel.', '2023-08-25');
 
 -- --------------------------------------------------------
 
@@ -324,9 +361,18 @@ CREATE TABLE `saved_jobposts` (
   `id_saved` int(11) NOT NULL,
   `id_jobpost` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `status` int(11) DEFAULT NULL,
   `createdat` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `saved_jobposts`
+--
+
+INSERT INTO `saved_jobposts` (`id_saved`, `id_jobpost`, `id_user`, `createdat`) VALUES
+(6, 5, 8, '2023-07-17 00:00:00'),
+(7, 6, 0, '2023-07-28 00:00:00'),
+(8, 4, 0, '2023-07-28 00:00:00'),
+(9, 6, 8, '2023-07-28 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -388,11 +434,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `fullname`, `email`, `password`, `address`, `headline`, `role_id`, `city_id`, `state_id`, `contactno`, `education_id`, `dob`, `age`, `resume`, `hash`, `active`, `aboutme`, `skills`, `gender`, `profile_pic`, `createdat`) VALUES
-(8, 'Jawwad Al Sabbir', 'mdsabbirhosen926@gmail.com', '$2y$10$vqsDy25Rx1B/2n3Z/6KI..oTMF2AwAXwIZHwsfiSqw.lC2q71lhGm', 'Patuakhali Science and Technology University,Dumki-8602,Pirtola Bazar,Patuakhali.', 'Software Engineer', 1, 5, 1, '01710151265', 7, '1999-10-13', NULL, NULL, NULL, 0, 'I am a web developer.', 'HTML, CSS, javascript.', 'male', '9bbb5f8aa2c4d5ac9ef31dec610ba406IMG_8791.JPG', '2023-07-02');
+(8, 'Jawwad Al Sabbir', 'mdsabbirhosen926@gmail.com', '$2y$10$vqsDy25Rx1B/2n3Z/6KI..oTMF2AwAXwIZHwsfiSqw.lC2q71lhGm', 'Patuakhali Science and Technology University,Dumki-8602,Pirtola Bazar,Patuakhali.', 'Software Engineer', 1, 5, 1, '01710151265', 7, '1999-10-13', NULL, '9bbb5f8aa2c4d5ac9ef31dec610ba406New-York-Resume-Template-Creative.pdf', NULL, 0, 'I am a web developer.', 'HTML, CSS, javascript.', 'male', '9bbb5f8aa2c4d5ac9ef31dec610ba406IMG_8791.JPG', '2023-07-02'),
+(9, 'kallol', 'kallol@gmail.com', '$2y$10$.gbGBrPH41jG2TYanuPqc.YrNO/LEzUDrG14H54JOmZ9rz35jSpUm', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, 0, NULL, NULL, NULL, 'user.png', '2023-07-16'),
+(10, 'Hasan Farazi', 'hasaanfarazi17@gmail.com', '$2y$10$Q6iEm.hgdXZunxa5WBjmlOJyyBfFJ1yK30KPvdP4y60JzbBQ0/1qu', 'Dumki,Patuakhali.', 'Entrepreauner', 1, 4, 1, '01736022148', 7, '2000-12-27', NULL, '50ccf2730e312c8f5d73f9eb1a400062Grace-ResumeViking-15-1.pdf', NULL, 0, 'i am a billionaire', 'speaking, influencing.', 'male', '50ccf2730e312c8f5d73f9eb1a400062Man-DRAWING-–-STEP-10.jpg', '2023-08-01');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- Indexes for table `company`
@@ -425,6 +479,12 @@ ALTER TABLE `job_type`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `saved_jobposts`
+--
+ALTER TABLE `saved_jobposts`
+  ADD PRIMARY KEY (`id_saved`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -433,6 +493,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `company`
@@ -459,10 +525,16 @@ ALTER TABLE `job_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `saved_jobposts`
+--
+ALTER TABLE `saved_jobposts`
+  MODIFY `id_saved` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

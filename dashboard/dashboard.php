@@ -65,11 +65,53 @@
             $query = $conn->query($sql);
             echo $query->num_rows;
             ?>
-
           </h1>
           <span>Reviews</span>
         </div>
+      <?php endif; ?>
 
+      <?php if (($_SESSION['role_id']) == 3) : ?>
+        <div class="container-box">
+          <div class="icon">
+            <i class="fa-solid fa-briefcase-medical"></i>
+          </div>
+          <h1>
+            <?php
+            $sql = "SELECT * FROM job_post";
+            $query = $conn->query($sql);
+            echo $query->num_rows;
+            ?>
+          </h1>
+          <span>Jobs</span>
+        </div>
+        <div class="container-box">
+          <div class="icon">
+            <i class="fa-solid fa-building"></i>
+          </div>
+          <h1>
+            <?php
+            $sql = "SELECT * FROM company";
+            $query = $conn->query($sql);
+
+            echo $query->num_rows;
+            ?>
+          </h1>
+          <span>Companies/Employers</span>
+        </div>
+        <div class="container-box">
+          <div class="icon">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <h1>
+            <?php
+            $sql = "SELECT * FROM users";
+            $query = $conn->query($sql);
+
+            echo $query->num_rows;
+            ?>
+          </h1>
+          <span>Job Seekers</span>
+        </div>
       <?php endif; ?>
     </div>
   </div>

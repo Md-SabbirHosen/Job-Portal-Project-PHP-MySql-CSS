@@ -17,14 +17,22 @@ if (isset($_POST['loginbtn'])) {
     $acctype = 3;
   }
 
+
+
   // if it does not exist... register user
   if ($acctype == 1) {
     $sql = "SELECT * FROM users WHERE email = '$email'";
-  } else {
+  } else if ($acctype == 2) {
     $sql = "SELECT * FROM company WHERE email = '$email'";
+  } else {
+    $sql = "SELECT * FROM admin where email = '$email'";
   }
 
   $query = $conn->query($sql);
+
+
+
+
 
   if ($query->num_rows < 1) {
     $_SESSION['message'] = 'Cannot find account with this details - Check if email is exist';
@@ -33,10 +41,12 @@ if (isset($_POST['loginbtn'])) {
     exit();
   } else {
     $row = $query->fetch_assoc();
+
     if (password_verify($password, $row['password']) && $row['email'] == $email) {
       $_SESSION['email'] = $row['email'];
       $_SESSION['role_id'] = $row['role_id'];
       $_SESSION['lastActive'] = time();
+
 
       // if a job seeker
       if ($row['role_id'] == 1) : {
@@ -73,6 +83,7 @@ if (isset($_POST['loginbtn'])) {
       endif;
       if ($row['role_id'] == 3) :
         $_SESSION['id_admin'] = $row['id_admin'];
+
         // if profile details are yet to be updated
         if ($row['fullname'] == ''  || $row['gender'] == ''  || $row['dob'] == '' || $row['address'] == '') {
           $_SESSION['message'] = 'You have logged in successfully. Click on Edit Details to update your profile.';
