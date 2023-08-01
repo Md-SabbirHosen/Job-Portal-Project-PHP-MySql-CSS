@@ -7,14 +7,14 @@ if (isset($_POST['loginbtn'])) {
   $password = $_POST['password'];
   $acctype = $_POST['acctype'];
 
-  // echo $email . $acctype;
-  // exit();
 
   // getting role id
   if ($acctype === "Applicant") {
     $acctype = 1;
-  } else {
+  } elseif ($acctype === "Employer") {
     $acctype = 2;
+  } else {
+    $acctype = 3;
   }
 
   // if it does not exist... register user
@@ -69,6 +69,21 @@ if (isset($_POST['loginbtn'])) {
             $_SESSION['messagetype'] = 'success';
             header('location: ../index.php');
           }
+        }
+      endif;
+      if ($row['role_id'] == 3) :
+        $_SESSION['id_admin'] = $row['id_admin'];
+        // if profile details are yet to be updated
+        if ($row['fullname'] == ''  || $row['gender'] == ''  || $row['dob'] == '' || $row['address'] == '') {
+          $_SESSION['message'] = 'You have logged in successfully. Click on Edit Details to update your profile.';
+          $_SESSION['messagetype'] = 'success';
+          header('location: ../index.php');
+          exit();
+        } else {
+          $_SESSION['message'] = 'You have logged in successfully.';
+          $_SESSION['messagetype'] = 'success';
+          header('location: ../index.php');
+          exit();
         }
       endif;
     } else {

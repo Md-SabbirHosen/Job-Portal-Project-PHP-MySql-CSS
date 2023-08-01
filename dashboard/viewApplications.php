@@ -74,7 +74,14 @@
                 </div>
               </div>
               <div class="job-info-container-right-side">
-                <a href="../assets/resume/<?php echo $row1['resume'] ?>" class="btn">View Resume</a>
+                <?php
+                $filePath = "../assets/resume/" . $row1['resume'];
+                if (isset($row1['resume']) && !empty($row1['resume']) && file_exists($filePath)) {
+                  echo '<a href="' . $filePath . '" class="btn"><i class="fa-solid fa-download" style="color:white;  font-size:1rem;margin-right:.25rem;" ></i>Resume</a>';
+                } else {
+                  echo '<a href="#" class="btn"><i class="fa-solid fa-circle-xmark"style="color:white;  font-size:1rem;margin-right:.25rem;"></i>Resume</a>';
+                }
+                ?>
               </div>
 
             </div>

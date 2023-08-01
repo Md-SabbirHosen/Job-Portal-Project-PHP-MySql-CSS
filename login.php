@@ -22,14 +22,11 @@
             </div>
             <form method="post" id="login-form" action="./process/login.php">
               <div class="input-group ">
-                <!-- <select class="selectpicker" name="acctype">
-                  <option value="Applicant">Job Seeker/Applicant</option>
-                  <option value="Employer">Employer</option>
-                </select> -->
                 <div class="select-container">
                   <select id="select-category" name="acctype">
                     <option value="Applicant">Job Seeker/Applicant</option>
                     <option value="Employer">Employer</option>
+                    <option value="Admin">Admin</option>
                   </select>
                   <span class="custom-arrow"></span>
                 </div>

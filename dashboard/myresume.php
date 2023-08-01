@@ -20,7 +20,7 @@
             <?php if ($row['resume'] == '') : ?>
               <p>No Resume!! Please Upload.</p>
             <?php else : ?>
-              <a href="../assets/resume/<?php echo $row['resume'] ?>" target="_blank" class="btn btn-secondary">View Resume</a>
+              <a href="../assets/resume/<?php echo $row['resume'] ?>" target="_blank" class="btn btn-secondary"><i class="fa-solid fa-download" style="color:white;  font-size:1rem;margin-right:.25rem;"></i> Resume</a>
             <?php endif; ?>
           </div>
         </div>
