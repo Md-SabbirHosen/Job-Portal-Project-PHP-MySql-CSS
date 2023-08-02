@@ -41,5 +41,26 @@ if (isset($_POST['companyPic'])) {
   }
 }
 
+if (isset($_POST['aPic'])) {
+  $email = $_SESSION['email'];
+  $profile_pic = $_FILES['picture']['name'];
+
+
+  //hash email 
+  $hash = md5($email);
+  $filename = $hash . $profile_pic;
+
+  if ($profile_pic != '') {
+    if (move_uploaded_file($_FILES['picture']['tmp_name'], '../assets/images/' . $filename)) {
+
+      $sql = "UPDATE admin SET profile_pic = '$filename' WHERE email = '$email'";
+      if ($conn->query($sql)) {
+        echo "Profile picture is changed!";
+      }
+    }
+  }
+}
+
+
 header("location: ../dashboard/editProfile.php");
 exit();

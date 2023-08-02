@@ -23,6 +23,17 @@ if (isset($_POST['companyPassword'])) {
     echo "Password Updated successfully!!";
   }
 }
+if (isset($_POST['aPassword'])) {
+  $email = $_SESSION['email'];
+  $newPassword = $_POST['newPassword'];
+
+  $password = password_hash($newPassword, PASSWORD_DEFAULT);
+
+  $sql = "UPDATE admin set password = '$password' where email = '$email'";
+  if ($conn->query($sql)) {
+    echo "Password Updated successfully!!";
+  }
+}
 
 header('location: ../index.php');
 exit();

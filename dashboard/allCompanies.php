@@ -32,6 +32,7 @@
             //id auto increament in tables initiation
             $i = 1;
             while ($row = $query->fetch_assoc()) {
+              $hash = md5($row['id_company']);
               //getting other detaills
               $company_id = $row['id_company'];
               //city
@@ -62,6 +63,7 @@
                                 <td>" . $city_id[0] . "</td>
                                 <td>" . $row['address'] . "</td>
                                 <td class='action-button' >
+                                <a class='btn btn-optional' href='../companyDetails.php?key=" . $hash . "&id=" . $company_id . "'>View</a>
                                 <a href='#' class='btn btn-optional'>Remove </a> 
                                 </td>
                                 </tr>";

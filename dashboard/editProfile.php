@@ -392,9 +392,104 @@
                 <h3>Deactivate Account</h3>
               </div>
               <div class="deactivate-button-container">
-                <form action="" method="post">
+                <form action="../process/deactivate.php" method="post">
                   <div class="button-container">
-                    <button type="submit" name="" class="btn btn-secondary">Deactivate Account</button>
+                    <button type="submit" name="companyProfile" class="btn btn-secondary">Deactivate Account</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        <?php endif; ?>
+      </div>
+      <div class="edit-jobseeker-profile-content-container">
+        <?php if (($_SESSION['role_id']) == 3) :
+          $id_admin = $_SESSION['id_admin'];
+          // getting the job details
+          $sql = "SELECT * FROM admin WHERE id_admin='$id_admin'";
+          $query = $conn->query($sql);
+          $row = $query->fetch_assoc();
+
+        ?>
+          <div class="edit-profile-content-container-left-side">
+            <div class="headline">
+              <h3>Admin Profile Details</h3>
+            </div>
+            <div class="change-details-container">
+              <div class="change-image-container">
+                <?php if ($row['profile_pic'] != '') :
+                ?>
+                  <img class="profile-pic" src="../assets/images/<?php echo $row['profile_pic'] ?>" alt="" />
+                <?php else : ?>
+                  <img class="profile-pic" src="../assets/images/user.png" alt="" />
+                <?php endif; ?>
+              </div>
+              <form method="post" class="change-image-form" action="../process/changePic.php" enctype="multipart/form-data">
+                <input class="file-upload" type="file" name="picture" accept="image/*">
+                <button type="submit" class="btn btn-secondary" name="aPic">Changes Profile Picture</button>
+              </form>
+            </div>
+            <div class="edit-details-form">
+              <form action="../process/changeProfile.php" method="post">
+                <div class="input-group">
+                  <label for="fullName">Full Name</label>
+                  <input type="text" name="fullname" value="<?php echo $row['fullname']; ?>" required>
+                </div>
+                <div class="input-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" name="email" value="<?php echo $row['email'] ?>" required>
+                </div>
+                <div class="input-group">
+                  <label for="phoneNumber">Phone Number</label>
+                  <input type="text" name="phoneno" placeholder="Enter Your Phone Number..." value="<?php echo $row['contactno'] ?>" required>
+                </div>
+                <div class="input-group">
+                  <label for="dateOfBirth">Date of Birth</label>
+                  <input type="date" name="dob" value="<?php echo $row['dob'] ?>" required>
+                </div>
+                <div class="input-group">
+                  <label for="gender">Gender</label>
+                  <input type="text" name="gender" placeholder="Enter Your Gender..." value="<?php echo $row['gender'] ?>" required>
+                </div>
+
+                <div class="input-group">
+                  <label for="residentialAddress">Residential Address</label>
+                  <input type="text" name="address" placeholder="Enter Your Residential Address..." value="<?php echo $row['address'] ?>" required>
+                </div>
+
+                <div class="button-container">
+                  <button type="submit" name="aProfile" class="btn btn-secondary">Save Changes</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="edit-profile-content-container-right-side">
+            <div class="password-container">
+              <div class="headline">
+                <h3>Change Password</h3>
+              </div>
+              <div class="change-password-container">
+                <form method="post" action="../process/changePassword.php">
+                  <div class="input-group">
+                    <label for="new-password">New Password</label>
+                    <input name="newPassword" type="password" minlength="6" placeholder="New Password" required>
+                  </div>
+                  <div class="input-group">
+                    <label for="confirm-newPassword">Confirm New Password</label>
+                    <input type="password" minlength="6" placeholder="Confirm New Password" required>
+                  </div>
+                  <button type="submit" name="aPassword" class="btn btn-secondary">Changes Password</button>
+                </form>
+              </div>
+            </div>
+            <div class="deactivate-container">
+              <div class="headline">
+                <h3>Deactivate Account</h3>
+              </div>
+              <div class="deactivate-button-container">
+                <form action="../process/deactivate.php" method="post">
+                  <div class="button-container">
+                    <button type="submit" name="adminProfile" class="btn btn-secondary">Deactivate Account</button>
                   </div>
                 </form>
               </div>

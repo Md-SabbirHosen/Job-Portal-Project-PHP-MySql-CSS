@@ -9,6 +9,7 @@
     <div class="all-jobs-container">
       <div class="headline">
         <h3>All Job Posts</h3>
+        <a href="../reportGenerator.php" class="btn">Report</a>
       </div>
       <div>
         <table>
@@ -25,11 +26,13 @@
           </thead>
           <tbody>
             <?php
+
             $sql =  "SELECT * FROM job_post";
             $query = $conn->query($sql);
             //id auto increament in tables initiation
             $i = 1;
             while ($row = $query->fetch_assoc()) {
+              $hash = md5($row['id_jobpost']);
               //getting other details
               $job_id = $row['id_jobpost'];
               //city
@@ -67,7 +70,7 @@
                                 <td>" . $state_id[0] . "</td>
                                 <td>" . $city_id[0] . "</td>
                                 <td>" . $company[0] . "</td>
-                                <td class='action-button' ><a class='btn btn-optional' href=''>View</a>
+                                <td class='action-button' ><a class='btn btn-optional' href='../jobDetails.php?key=" . $hash . "&id=" . $job_id . "'>View</a>
                                 <a href='#' class='btn btn-optional'>Remove </a> 
                                 </td>
                                 </tr>";

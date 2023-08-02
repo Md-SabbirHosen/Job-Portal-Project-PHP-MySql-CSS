@@ -43,6 +43,25 @@ if (isset($_POST['companyProfile'])) {
   }
 }
 
+if (isset($_POST['aProfile'])) {
+  $fullname = $_POST['fullname'];
+  $email = $_SESSION['email'];
+  $phoneno = $_POST['phoneno'];
+  $dob = $_POST['dob'];
+  $gender = $_POST['gender'];
+  $address = $_POST['address'];
+
+
+  $sql = "UPDATE admin SET fullname='$fullname',email='$email',address='$address',contactno='$phoneno',dob='$dob',gender='$gender' WHERE email = '$email'";
+  if ($conn->query($sql)) {
+    $_SESSION['message'] = 'Profile Updated successfully!!';
+    $_SESSION['messagetype'] = 'success';
+  } else {
+    $_SESSION['message'] = $conn->error;
+    $_SESSION['messagetype'] = 'warning';
+  }
+}
+
 
 header('location: ../dashboard/editProfile.php');
 exit();

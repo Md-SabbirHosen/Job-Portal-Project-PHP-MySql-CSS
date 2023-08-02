@@ -59,7 +59,7 @@
             <td>" . (isset($division[0]) ? $division[0] : 'unknown')  . "</td>
             <td>" . (isset($city_id[0]) ? $city_id[0] : 'unknown') . "</td>
             <td>" . (isset($row['address']) ? $row['address'] : 'unknown') . "</td>
-            <td class='action-button' ><a class='btn btn-optional' href=''>View</a>
+            <td class='action-button' >
             <a href='#' class='btn btn-optional'>Remove</a> 
             </td>
             </tr>";
