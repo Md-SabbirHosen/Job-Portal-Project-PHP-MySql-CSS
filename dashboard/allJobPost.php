@@ -7,9 +7,9 @@
   <div class="dashboard-container">
     <?php include "./dashboardSidebar.php" ?>
     <div class="all-jobs-container">
-      <div class="headline">
+      <div class="headline headline-container">
         <h3>All Job Posts</h3>
-        <a href="../reportGenerator.php" class="btn">Report</a>
+        <a href="../Report Generation/Admin/report-for-jobposts.php" class="btn"><i class="fa-solid fa-download"></i> Report</a>
       </div>
       <div>
         <table>

@@ -1,5 +1,5 @@
 <?php
-require_once('tcpdf/tcpdf.php');
+require_once('../../tcpdf/tcpdf.php');
 
 // Create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -39,14 +39,14 @@ $content = '';
 
 // Define table headers
 $headers = '<tr>
-              <th>#</th>
-              <th>Job Title</th>
-              <th>Industry</th>
-              <th>Job Type</th>
-              <th>Salary(Tk.)</th>
-              <th>Division</th>
-              <th>City/District</th>
-              <th>Posted By</th>
+              <th style="width: 20px;font-weight:bold">#</th>
+              <th style="font-weight:bold;">Job Title</th>
+              <th style="font-weight:bold;">Industry</th>
+              <th style="font-weight:bold;">Job Type</th>
+              <th style="font-weight:bold;">Salary(Tk.)</th>
+              <th style="font-weight:bold;">Division</th>
+              <th style="font-weight:bold;">City/District</th>
+              <th style="font-weight:bold;">Posted By</th>
             </tr>';
 
 while ($row = $query->fetch_assoc()) {
@@ -67,7 +67,7 @@ while ($row = $query->fetch_assoc()) {
   $company = $company_result->fetch_row()[0];
 
   // Add table row to content
-  $content .= '<tr>
+  $content .= '<tr style="background-color: ' . ($i % 2 === 0 ? '#f2f2f2' : '#ffffff') . ';">
                     <td style="padding: 5px;">' . $i . '</td>
                     <td style="padding: 5px;">' . $row['jobtitle'] . '</td>
                     <td style="padding: 5px;">' . $industry . '</td>
@@ -81,7 +81,7 @@ while ($row = $query->fetch_assoc()) {
 }
 
 // Define the table structure
-$table = '<table border="1" cellpadding="5">' . $headers . $content . '</table>';
+$table = '<table border="1" cellpadding="5" style="border-collapse: collapse; width: 100%;">' . $headers . $content . '</table>';
 
 // Print table into PDF using writeHTML method
 $pdf->writeHTML($table);
