@@ -1,88 +1,90 @@
 <?php
-// Assuming you have already connected to the database and initialized the $conn variable
+require_once('tcpdf/tcpdf.php');
 
-require('./fpdf186/fpdf.php');
+// Create new PDF document
+$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
-class PDF extends FPDF
-{
-  // Page header
-  function Header()
-  {
-    // Add an image or any header content if needed
-  }
+// Set document information
+$pdf->SetCreator(PDF_CREATOR);
+$pdf->SetAuthor('Your Name');
+$pdf->SetTitle('Job Post Report');
+$pdf->SetSubject('Job Post Data');
+$pdf->SetKeywords('TCPDF, Job, Report');
 
-  // Page footer
-  function Footer()
-  {
-    // Add a footer content if needed
-  }
-}
-
-// Create a new PDF object
-$pdf = new PDF("P", "mm", "A4");
+// Add a page
 $pdf->AddPage();
 
-// Set font and table header
-$pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(10, 10, '#', 1);
-$pdf->Cell(40, 10, 'Job Title', 1);
-$pdf->Cell(30, 10, 'Industry', 1);
-$pdf->Cell(25, 10, 'Job Type', 1);
-$pdf->Cell(35, 10, 'Salary (৳)', 1);
-$pdf->Cell(30, 10, 'Location', 1);
-$pdf->Cell(30, 10, 'City', 1);
-$pdf->Cell(40, 10, 'Posted By', 1);
-$pdf->Ln();
+// Set font
+$pdf->SetFont('helvetica', 'B', 16);
 
-$conn = mysqli_connect("localhost", "root", "", "jobportal");
+// Add headline
+$pdf->Cell(0, 10, 'All Job Posts', 0, 1, 'C');
+$pdf->SetFont('helvetica', '', 12);
 
 // Fetch data from the database
+$conn = mysqli_connect(
+  "localhost",
+  "root",
+  "",
+  "jobportal"
+);
 $sql = "SELECT * FROM job_post";
 $query = $conn->query($sql);
+
+// Initialize counter
 $i = 1;
 
-// Loop through the data and populate the table rows
+// Define content variable
+$content = '';
+
+// Define table headers
+$headers = '<tr>
+              <th>#</th>
+              <th>Job Title</th>
+              <th>Industry</th>
+              <th>Job Type</th>
+              <th>Salary(Tk.)</th>
+              <th>Division</th>
+              <th>City/District</th>
+              <th>Posted By</th>
+            </tr>';
+
 while ($row = $query->fetch_assoc()) {
-  //getting other details
-  $job_id = $row['id_jobpost'];
-  //city
-  $city_id = $row['city_id'];
-  $city_id = $conn->query("SELECT name FROM districts_or_cities WHERE id = '$city_id'");
-  $city_id = $city_id->fetch_row();
+  // Fetch other details using separate queries
+  $industry_result = $conn->query("SELECT name FROM industry WHERE id = '{$row['industry_id']}'");
+  $industry = $industry_result->fetch_row()[0];
 
-  //region
-  $state_id = $row['state_id'];
-  $state_id = $conn->query("SELECT name FROM states WHERE id = '$state_id'");
-  $state_id = $state_id->fetch_row();
+  $job_status_result = $conn->query("SELECT type FROM job_type WHERE id = '{$row['job_status']}'");
+  $job_status = $job_status_result->fetch_row()[0];
 
-  // industry
-  $industry = $row['industry_id'];
-  $industry = $conn->query("SELECT name FROM industry WHERE id = '$industry'");
-  $industry = $industry->fetch_row();
+  $state_result = $conn->query("SELECT name FROM states WHERE id = '{$row['state_id']}'");
+  $state_id = $state_result->fetch_row()[0];
 
-  //job status
-  $job_status = $row['job_status'];
-  $job_status = $conn->query("SELECT type FROM job_type WHERE id = '$job_status'");
-  $job_status = $job_status->fetch_row();
+  $city_result = $conn->query("SELECT name FROM districts_or_cities WHERE id = '{$row['city_id']}'");
+  $city_id = $city_result->fetch_row()[0];
 
-  //company
-  $company = $row['id_company'];
-  $company = $conn->query("SELECT companyname FROM company WHERE id_company = '$company'");
-  $company = $company->fetch_row();
+  $company_result = $conn->query("SELECT companyname FROM company WHERE id_company = '{$row['id_company']}'");
+  $company = $company_result->fetch_row()[0];
 
-  // Populate the PDF with data
-  $pdf->SetFont('Arial', '', 12);
-  $pdf->Cell(10, 10, $i, 0, 1, 'C');
-  $pdf->Cell(40, 10, $row['jobtitle'], 0, 1, 'C');
-  $pdf->Cell(30, 10, $industry[0], 0, 1, 'C');
-  $pdf->Cell(25, 10, $job_status[0], 0, 1, 'C');
-  $pdf->Cell(35, 10, $row['minimumsalary'] . " - " . $row['maximumsalary'], 0, 1, 'C');
-  $pdf->Cell(30, 10, $state_id[0], 0, 1, 'C');
-  $pdf->Cell(30, 10, $city_id[0], 0, 1, 'C');
-  $pdf->Cell(40, 10, $company[0], 0, 1, 'C');
-  $pdf->Ln();
+  // Add table row to content
+  $content .= '<tr>
+                    <td style="padding: 5px;">' . $i . '</td>
+                    <td style="padding: 5px;">' . $row['jobtitle'] . '</td>
+                    <td style="padding: 5px;">' . $industry . '</td>
+                    <td style="padding: 5px;">' . $job_status . '</td>
+                    <td style="padding: 5px;">' . $row['minimumsalary'] . ' - ' . $row['maximumsalary'] . '</td>
+                    <td style="padding: 5px;">' . $state_id . '</td>
+                    <td style="padding: 5px;">' . $city_id . '</td>
+                    <td style="padding: 5px;">' . $company . '</td>
+                </tr>';
   $i++;
 }
 
-// Output the PDF
-$pdf->Output();
+// Define the table structure
+$table = '<table border="1" cellpadding="5">' . $headers . $content . '</table>';
+
+// Print table into PDF using writeHTML method
+$pdf->writeHTML($table);
+
+// Close and output PDF document
+$pdf->Output('job_post_report.pdf', 'I');
