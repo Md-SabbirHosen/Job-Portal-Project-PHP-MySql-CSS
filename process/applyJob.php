@@ -23,7 +23,6 @@ if (isset($_GET['id'])) {
       $sql = "insert into applied_jobposts (id_jobpost,id_user,id_company,createdat) values('$id_jobpost','$id_user','$id_company','$createdat')";
 
       $conn->query($sql);
-      // exit();
     }
 
     // Report Generation:

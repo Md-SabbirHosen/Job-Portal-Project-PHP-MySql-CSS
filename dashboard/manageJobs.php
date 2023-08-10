@@ -16,6 +16,7 @@
       $result = $conn->query($sql);
 
       while ($row = $result->fetch_assoc()) {
+        $id_jobpost = $row['id_jobpost'];
         $jobtitle = $row['jobtitle'];
         $city_id = $row['city_id'];
         $industry_id = $row['industry_id'];
@@ -28,6 +29,8 @@
         $job_type = $conn->query("SELECT type from job_type where id = '$job_status_id'");
         $profile_pic = $conn->query("SELECT profile_pic from company where id_company = '$id_company'");
 
+        $hash = md5($id_jobpost);
+
         $location = $location->fetch_assoc();
         $job_category = $job_category->fetch_assoc();
         $job_type = $job_type->fetch_assoc();
@@ -38,7 +41,14 @@
             <img src="../assets/images/<?php echo $profile_pic['profile_pic'] ?>" alt="">
           </div>
           <div class="job-info-container">
-            <span class="validity-info">Active</span>
+            <div class="job-info-upper-area">
+              <span class=" validity-active">Active</span>
+              <div class="activity-container">
+                <a href="../jobDetails.php?key=<?php echo $hash . '&id=' . $id_jobpost ?>"><i class="fa-solid fa-eye"></i></a>
+                <a><i class="fa-solid fa-pen-to-square"></i></a>
+                <a><i class="fa-solid fa-trash"></i></a>
+              </div>
+            </div>
             <div class="title-with-job-status">
               <h3> <?php echo $jobtitle; ?> </h3>
               <div class="job-status">

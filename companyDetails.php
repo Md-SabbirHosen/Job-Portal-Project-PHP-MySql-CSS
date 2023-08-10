@@ -169,13 +169,13 @@
                 <label for="rate-2" class="fas fa-star"></label>
                 <input type="radio" name="rate" id="rate-1">
                 <label for="rate-1" class="fas fa-star"></label>
-                <form>
+                <form action="./process/submitReview.php?key=<?php echo md5($id_company) . "&cid=" . $id_company  ?>" method="post">
                   <header></header>
                   <div class="textarea">
-                    <textarea cols="30" placeholder="Describe your experience.."></textarea>
+                    <textarea name="company-review" cols="30" placeholder="Describe your experience.."></textarea>
                   </div>
                   <div class="button-container">
-                    <button class="btn" type="submit">Submit Review</button>
+                    <button class="btn" type="submit" name="submit">Submit Review</button>
                   </div>
                 </form>
               </div>

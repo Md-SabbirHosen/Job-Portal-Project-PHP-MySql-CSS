@@ -1035,6 +1035,23 @@ select:focus {
   padding: 1rem 0;
 }
 
+.job-info-upper-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-info-upper-area .activity-container {
+  display: flex;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+
+.job-info-upper-area .activity-container a {
+  background-color: var(--tertiary-color);
+  padding: 0 0.25rem;
+}
+
 .job-info-container span {
   margin-left: 0.5rem;
 }
