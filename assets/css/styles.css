@@ -1367,6 +1367,116 @@ select:focus {
   flex-direction: column;
 }
 
+.review-container {
+  position: relative;
+  max-width: 45rem;
+  margin: 2rem auto;
+  background: var(--darkest-color);
+  padding: 1.5rem 2rem;
+  border: 1px solid var(--darkest-color);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.review-container .post {
+  display: none;
+}
+.review-container .text {
+  font-size: 25px;
+  color: var(--lightest-color);
+  font-weight: 500;
+}
+.review-container .edit {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+  cursor: pointer;
+}
+.review-container .edit:hover {
+  text-decoration: underline;
+}
+.review-container .star-widget input {
+  display: none;
+}
+.review-container .star-widget label {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+  padding: 0.5rem;
+  float: right;
+  transition: all 0.2s ease;
+}
+
+.review-container input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label {
+  color: var(--tertiary-color);
+}
+.review-container input:checked ~ label {
+  color: var(--tertiary-color);
+}
+.review-container input#rate-5:checked ~ label {
+  color: var(--tertiary-color);
+  text-shadow: 0 0 20px var(--primary-color);
+}
+.review-container #rate-1:checked ~ form header:before {
+  content: "I just hate it ";
+}
+.review-container #rate-2:checked ~ form header:before {
+  content: "I don't like it ";
+}
+.review-container #rate-3:checked ~ form header:before {
+  content: "It is awesome ";
+}
+.review-container #rate-4:checked ~ form header:before {
+  content: "I just like it ";
+}
+.review-container #rate-5:checked ~ form header:before {
+  content: "I just love it ";
+}
+.review-container form {
+  display: none;
+}
+.review-container input:checked ~ form {
+  display: block;
+}
+.review-container form header {
+  width: 100%;
+  font-size: 1.5rem;
+  color: var(--lightest-color);
+  font-weight: bold;
+  margin: 4rem 0 2rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.review-container form .textarea {
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+}
+.review-container form .textarea textarea {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: var(--darkest-color);
+  border: 1px solid var(--tertiary-color);
+  background: var(--tertiary-color);
+  padding: 0.5rem;
+  font-size: 1rem;
+  resize: none;
+}
+.review-container .textarea textarea:focus {
+  border-color: var(--lightest-color);
+}
+.review-container form .btn {
+  margin: 1rem;
+  padding: 0.75rem;
+}
+
 /* browse job details */
 .description-wrapper {
   padding: 2rem 0 0;
