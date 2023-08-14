@@ -45,8 +45,8 @@
               <span class=" validity-active">Active</span>
               <div class="activity-container">
                 <a href="../jobDetails.php?key=<?php echo $hash . '&id=' . $id_jobpost ?>"><i class="fa-solid fa-eye"></i></a>
-                <a><i class="fa-solid fa-pen-to-square"></i></a>
-                <a><i class="fa-solid fa-trash"></i></a>
+                <a href="./editJob.php?key=<?php echo $hash . '&id=' . $id_jobpost ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a href="../process/deleteJobs.php?key=<?php echo $hash . '&id=' . $id_jobpost ?>"><i class="fa-solid fa-trash"></i></a>
               </div>
             </div>
             <div class="title-with-job-status">
