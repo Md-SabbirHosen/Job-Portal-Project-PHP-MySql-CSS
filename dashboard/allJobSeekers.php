@@ -32,6 +32,7 @@
             //id auto increament in tables initiation
             $i = 1;
             while ($row = $query->fetch_assoc()) {
+              $hash = md5($row['id_user']);
               //getting other detaills
               $id_user = $row['id_user'];
               //city
@@ -61,7 +62,7 @@
             <td>" . (isset($city_id[0]) ? $city_id[0] : 'unknown') . "</td>
             <td>" . (isset($row['address']) ? $row['address'] : 'unknown') . "</td>
             <td class='action-button' >
-            <a href='#' class='btn btn-optional'>Remove</a> 
+            <a href='../process/deleteUsers.php?key=" . $hash . "&id=" . $id_user . "&page=delete-jobseekers' class='btn btn-optional'>Remove</a> 
             </td>
             </tr>";
               $i++;

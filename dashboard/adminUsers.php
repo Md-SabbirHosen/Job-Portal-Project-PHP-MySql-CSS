@@ -31,7 +31,7 @@
             //id auto increament in tables initiation
             $i = 1;
             while ($row = $query->fetch_assoc()) {
-
+              $hash = md5($row['id_admin']);
               $admin_id = $row['id_admin'];
 
               echo "
@@ -46,7 +46,7 @@
                                 <td>" . (isset($row['address']) ? $row['address'] : 'unknown') . "</td>
                                 
                                 <td class='action-button' >
-                                <a href='#' class='btn btn-optional'>Remove </a> 
+                                <a href='../process/deleteUsers.php?key=" . $hash . "&id=" . $admin_id . "&page=delete-admins' class='btn btn-optional'>Remove </a> 
                                 </td>
                                 </tr>";
               $i++;

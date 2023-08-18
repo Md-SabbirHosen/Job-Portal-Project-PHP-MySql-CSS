@@ -71,7 +71,7 @@
                                 <td>" . $city_id[0] . "</td>
                                 <td>" . $company[0] . "</td>
                                 <td class='action-button' ><a class='btn btn-optional' href='../jobDetails.php?key=" . $hash . "&id=" . $job_id . "'>View</a>
-                                <a href='#' class='btn btn-optional'>Remove </a> 
+                                <a href='../process/deleteJobs.php?key=" . $hash . "&id=" . $job_id . "&page=admin-control' class='btn btn-optional'>Remove </a> 
                                 </td>
                                 </tr>";
               $i++;

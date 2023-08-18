@@ -65,7 +65,7 @@
                                 <td>" . $row['address'] . "</td>
                                 <td class='action-button' >
                                 <a class='btn btn-optional' href='../companyDetails.php?key=" . $hash . "&id=" . $company_id . "'>View</a>
-                                <a href='#' class='btn btn-optional'>Remove </a> 
+                                <a href='../process/deleteCompany.php?key=" . $hash . "&id=" . $company_id . "&page=admin-control' class='btn btn-optional'>Remove </a> 
                                 </td>
                                 </tr>";
               $i++;
