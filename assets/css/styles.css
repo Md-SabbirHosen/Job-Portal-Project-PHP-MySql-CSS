@@ -1440,28 +1440,33 @@ input:not(:checked) ~ label:hover ~ label {
   color: var(--tertiary-color);
   text-shadow: 0 0 20px var(--primary-color);
 }
-.review-container #rate-1:checked ~ form header:before {
+.review-container #rate-1:checked ~ .review-form header:before {
   content: "I just hate it ";
 }
-.review-container #rate-2:checked ~ form header:before {
+.review-container #rate-2:checked ~ .review-form header:before {
   content: "I don't like it ";
 }
-.review-container #rate-3:checked ~ form header:before {
+.review-container #rate-3:checked ~ .review-form header:before {
   content: "It is awesome ";
 }
-.review-container #rate-4:checked ~ form header:before {
+.review-container #rate-4:checked ~ .review-form header:before {
   content: "I just like it ";
 }
-.review-container #rate-5:checked ~ form header:before {
+.review-container #rate-5:checked ~ .review-form header:before {
   content: "I just love it ";
 }
 .review-container form {
+  /* display: none; */
+}
+
+.review-container .review-form {
   display: none;
 }
-.review-container input:checked ~ form {
+
+.review-container input:checked ~ .review-form {
   display: block;
 }
-.review-container form header {
+.review-container .review-form header {
   width: 100%;
   font-size: 1.5rem;
   color: var(--lightest-color);

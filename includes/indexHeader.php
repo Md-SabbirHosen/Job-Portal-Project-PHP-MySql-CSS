@@ -9,6 +9,7 @@
 
   <!-- css files -->
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
 
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

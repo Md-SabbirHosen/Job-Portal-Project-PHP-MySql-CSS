@@ -46,7 +46,7 @@
                                 <td>" . (isset($row['address']) ? $row['address'] : 'unknown') . "</td>
                                 
                                 <td class='action-button' >
-                                <a href='../process/deleteUsers.php?key=" . $hash . "&id=" . $admin_id . "&page=delete-admins' class='btn btn-optional'>Remove </a> 
+                                <a href='../process/deleteAdmins.php?key=" . $hash . "&id=" . $admin_id . "&page=delete-admins' class='btn btn-optional'>Remove </a> 
                                 </td>
                                 </tr>";
               $i++;

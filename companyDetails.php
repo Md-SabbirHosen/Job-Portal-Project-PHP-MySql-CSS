@@ -28,6 +28,11 @@
     $query3 = $conn->query($sql3);
     $row3 = $query3->fetch_assoc();
 
+    // getting reviews info
+    $sql5 = "SELECT * FROM company_reviews where company_id = '$id_company'";
+    $query5  = $conn->query($sql5);
+
+
   ?>
     <div id="browse-company-details">
       <div class="intro-banner">
@@ -82,6 +87,7 @@
             $result = $conn->query($sql);
 
             while ($row4 = $result->fetch_assoc()) {
+              $job_id = $row4['id_jobpost'];
               $jobtitle = $row4['jobtitle'];
               $city_id = $row4['city_id'];
               $industry_id = $row4['industry_id'];
@@ -89,6 +95,8 @@
               $minimum_salary = $row4['minimumsalary'];
               $maximum_salary = $row4['maximumsalary'];
               $create_date = $row4['createdat'];
+
+              $hash = md5($job_id);
               $location = $conn->query("SELECT name from districts_or_cities where id = '$city_id'");
               $job_category = $conn->query("SELECT name from industry where id = '$industry_id'");
               $job_type = $conn->query("SELECT type from job_type where id = '$job_status_id'");
@@ -99,7 +107,7 @@
               $job_type = $job_type->fetch_assoc();
               $profile_pic = $profile_pic->fetch_assoc();
             ?>
-              <div class="job-item-container">
+              <a href="./jobDetails.php?key=<?php echo $hash . '&id=' . $job_id ?>" class="job-item-container">
                 <div class="profile-container">
                   <img src="../assets/images/<?php echo $profile_pic['profile_pic'] ?>" alt="">
                 </div>
@@ -142,7 +150,7 @@
                     ?>
                   </div>
                 </div>
-              </div>
+              </a>
             <?php }
             ?>
           </div>
@@ -151,35 +159,56 @@
               <span class="icon-container">
                 <i class="fa-solid fa-star"></i>
               </span>
-              <h3>Review Company</h3>
+              <h3>Review Company - Reviewed (<?php echo $query5->num_rows; ?>)</h3>
             </div>
-            <div class="review-container">
-              <div class="post">
-                <div class="text">Thanks for rating us!</div>
-                <div class="edit">EDIT</div>
-              </div>
-              <div class="star-widget">
-                <input type="radio" name="rate" id="rate-5">
-                <label for="rate-5" class="fas fa-star"></label>
-                <input type="radio" name="rate" id="rate-4">
-                <label for="rate-4" class="fas fa-star"></label>
-                <input type="radio" name="rate" id="rate-3">
-                <label for="rate-3" class="fas fa-star"></label>
-                <input type="radio" name="rate" id="rate-2">
-                <label for="rate-2" class="fas fa-star"></label>
-                <input type="radio" name="rate" id="rate-1">
-                <label for="rate-1" class="fas fa-star"></label>
-                <form action="./process/submitReview.php?key=<?php echo md5($id_company) . "&cid=" . $id_company  ?>" method="post">
-                  <header></header>
-                  <div class="textarea">
-                    <textarea name="company-review" cols="30" placeholder="Describe your experience.."></textarea>
-                  </div>
-                  <div class="button-container">
-                    <button class="btn" type="submit" name="submit">Submit Review</button>
-                  </div>
-                </form>
-              </div>
+            <div class="review-section">
+              <?php
+              while ($row5 = $query5->fetch_assoc()) {
+              ?>
+                <div class="review-item">
+                  <div class="review-item-profile-container"></div>
+                  <div class="review-item-review-container"></div>
+
+                </div>
+              <?php
+              }
+              ?>
             </div>
+            <?php if (isset($_SESSION['role_id']) && $_SESSION['role_id'] == 1) : ?>
+              <div class="review-container">
+                <!-- <div class="post">
+                  <div class="text">Thanks for rating us!</div>
+                  <div class="edit">EDIT</div>
+                </div> -->
+
+
+                <div class="star-widget">
+                  <form action="./process/submitReview.php?key=<?php echo md5($id_company) . "&cid=" . $id_company  ?>" method="post">
+                    <input type="radio" name="rate5" id="rate-5">
+                    <label for="rate-5" class="fas fa-star"></label>
+                    <input type="radio" name="rate4" id="rate-4">
+                    <label for="rate-4" class="fas fa-star"></label>
+                    <input type="radio" name="rate3" id="rate-3">
+                    <label for="rate-3" class="fas fa-star"></label>
+                    <input type="radio" name="rate2" id="rate-2">
+                    <label for="rate-2" class="fas fa-star"></label>
+                    <input type="radio" name="rate1" id="rate-1">
+                    <label for="rate-1" class="fas fa-star"></label>
+
+
+                    <div class="review-form">
+                      <header></header>
+                      <div class="textarea">
+                        <textarea name="company-review" cols="30" placeholder="Describe your experience.."></textarea>
+                      </div>
+                      <div class="button-container">
+                        <button class="btn" type="submit" name="submit">Submit Review</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            <?php endif; ?>
           </div>
         </div>
         <div class="company-details-page-content-right-side">

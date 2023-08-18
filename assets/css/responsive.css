@@ -1,0 +1,142 @@
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  /* Header */
+  #header .container {
+    padding: 0.5rem;
+  }
+
+  #header .header-left {
+    display: block;
+  }
+
+  .logo-container {
+    justify-content: center;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar li {
+    margin: 0.5rem 0;
+  }
+
+  .navigation.header-right {
+    justify-content: center;
+  }
+
+  /* Intro Banner */
+  .intro-banner {
+    height: calc(100vh - 5rem);
+  }
+
+  .intro-banner-content {
+    padding: 1rem;
+  }
+
+  .banner-headline-text-part h3 {
+    font-size: 24px;
+  }
+
+  .banner-headline-text-part p {
+    font-size: 16px;
+  }
+
+  /* Icon Boxes and Counter Boxes */
+  .icon-boxes-content,
+  .counter-boxes-content {
+    padding: 1.5rem 0;
+  }
+
+  .icon-boxes-content .bottom-side,
+  .counter-boxes-content .bottom-side {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .icon-boxes-content .bottom-side .icon-box,
+  .counter-boxes-content .bottom-side .counter-box {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .icon-box .icon-box-circle,
+  .counter-box .counter-box-circle {
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 0.5rem;
+  }
+
+  .icon-box .icon-box-circle i,
+  .counter-box .counter-box-circle i {
+    font-size: 1rem;
+  }
+
+  /* Browse Companies and Browse Jobs */
+  .browse-content {
+    flex-direction: column;
+    padding: 0 1.5rem;
+  }
+
+  .left-side-overlay-content,
+  .right-side-overlay-content {
+    padding: 1rem;
+  }
+
+  /* Other adjustments as needed */
+}
+
+/* iPad (landscape) styles */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Header */
+  #header .container {
+    padding: 0.5rem 1rem;
+  }
+
+  #header .header-left {
+    grid-template-columns: 1fr 1fr; /* Adjust column layout */
+  }
+
+  .logo-container {
+    justify-content: flex-start; /* Adjust alignment */
+  }
+
+  .navbar ul li {
+    margin-left: 2rem; /* Adjust margin */
+  }
+
+  /* Intro Banner */
+  .intro-banner {
+    height: calc(100vh - 5rem);
+  }
+
+  .intro-banner-content {
+    padding: 2rem;
+  }
+
+  .banner-headline-text-part h3 {
+    font-size: 32px;
+  }
+
+  .banner-headline-text-part p {
+    font-size: 18px;
+  }
+
+  /* Icon Boxes and Counter Boxes */
+  .icon-boxes-content,
+  .counter-boxes-content {
+    padding: 2rem 0;
+  }
+
+  .icon-boxes-content .bottom-side .icon-box,
+  .counter-boxes-content .bottom-side .counter-box {
+    width: 200px; /* Adjust width */
+    height: auto;
+    padding: 1rem;
+  }
+
+  /* Other adjustments as needed */
+}

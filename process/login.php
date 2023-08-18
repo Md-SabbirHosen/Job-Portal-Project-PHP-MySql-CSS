@@ -31,9 +31,6 @@ if (isset($_POST['loginbtn'])) {
   $query = $conn->query($sql);
 
 
-
-
-
   if ($query->num_rows < 1) {
     $_SESSION['message'] = 'Cannot find account with this details - Check if email is exist';
     $_SESSION['messagetype'] = 'warning';
