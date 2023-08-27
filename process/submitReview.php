@@ -24,8 +24,7 @@ if (isset($_GET['cid'])) {
       $rate = 5;
     }
 
-    echo $rate;
-    exit();
+
 
     $sql = "INSERT into company_reviews (company_id,createdby,review,	createdat) values('$id_company','$id_user','$review','$createdat')";
 

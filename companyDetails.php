@@ -164,11 +164,29 @@
             <div class="review-section">
               <?php
               while ($row5 = $query5->fetch_assoc()) {
+                $id_user = $row5['createdby'];
+                $review  = $row5['review'];
+                $fullname = $conn->query("SELECT fullname FROM users WHERE id_user = '$id_user'");
+                $profile_pic  = $conn->query("select profile_pic from users where id_user = '$id_user'");
+                $fullname  = $fullname->fetch_assoc();
+                $profile_pic  = $profile_pic->fetch_assoc();
               ?>
                 <div class="review-item">
-                  <div class="review-item-profile-container"></div>
-                  <div class="review-item-review-container"></div>
+                  <div class="review-item-profile-container">
+                    <?php
+                    if ($profile_pic !== null && isset($profile_pic['profile_pic'])) {
+                      echo '<img  src="./assets/images/' . $profile_pic['profile_pic'] . '" alt="Profile Picture">';
+                    } else {
+                      echo "<img src='./assets/images/user.png' alt='Default Profile Picture'>";
+                    }
+                    ?>
 
+                    <p><?php echo $fullname['fullname']; ?></p>
+
+                  </div>
+                  <div class="review-item-review-container">
+                    <p>"<?php echo $review; ?>"</p>
+                  </div>
                 </div>
               <?php
               }
