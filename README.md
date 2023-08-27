@@ -1,6 +1,6 @@
 # Job Portal Project
 
-Welcome to the Job Portal Project repository! This project is a web-based job portal application developed using HTML, CSS, PHP, and MySQL. It serves as a platform to bridge the gap between job seekers and employers, offering features for efficient job search, application submission, and recruitment.
+Welcome to the Job Portal Project repository! This project is a web-based job portal application developed using HTML, CSS, PHP, and MySQL database. It serves as a platform to bridge the gap between job seekers and employers, offering features for efficient job search, application submission, and recruitment.
 
 ## Features
 
