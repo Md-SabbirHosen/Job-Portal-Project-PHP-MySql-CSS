@@ -10,6 +10,7 @@ Welcome to the Job Portal Project repository! This project is a web-based job po
 - **Job Application:** Apply for the interested job and save the job.
 - **Employer Accounts:** Post and manage job listings as an employer.
 - **Responsive Design:** Currently developing.
+- **Report Generation:** Report generation system for admin panel and jobseekers.
 
 ## Technologies Used
 
