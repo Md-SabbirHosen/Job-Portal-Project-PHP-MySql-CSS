@@ -3,6 +3,8 @@
 
 <body>
   <?php include "./includes/indexNavbar.php" ?>
+  <?php include "./includes/indexChat.php" ?>
+
   <div id="home-page">
     <!-- Intro Banner -->
     <div class="intro-banner">
@@ -164,6 +166,7 @@
       <?php include 'includes/footer.php' ?>
     </div>
   </div>
+  <script src="./assets/js/chatbot.js"></script>
 </body>
 
 </html>
