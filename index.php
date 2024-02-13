@@ -4,7 +4,10 @@
 <body>
   <?php include "./includes/indexNavbar.php" ?>
   <?php include "./includes/indexChat.php" ?>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 855222a9586480ae4177774b99d69f0ccaac4eff
   <div id="home-page">
     <!-- Intro Banner -->
     <div class="intro-banner">
