@@ -25,7 +25,8 @@ To get started with the Job Portal Project:
 1. Clone this repository: `git clone https://github.com/Md-SabbirHosen/Job-Portal-Project-PHP-MySql-CSS.git`
 2. Set up a local web server environment (e.g., XAMPP).
 3. Import the JobPortal.sql file.
-4. Access the application through your web browser.
+4. Setup the tcpdf library for pdf report generation. (For setup you can follow this video: https://youtu.be/Q1iGTtMspho?si=f7XJ_I8wEJxiiaJb)
+5. Access the application through your web browser.
 
 
 
