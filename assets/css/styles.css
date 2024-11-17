@@ -1624,11 +1624,7 @@ input:not(:checked) ~ label:hover ~ label {
 }
 
 /* Chatbot */
-<<<<<<< HEAD
-.chatbot-toggler {
-=======
 .chatbot-btn {
->>>>>>> 855222a9586480ae4177774b99d69f0ccaac4eff
   position: fixed;
   bottom: 30px;
   right: 35px;
@@ -1661,55 +1657,6 @@ input:not(:checked) ~ label:hover ~ label {
   }
 }
 
-<<<<<<< HEAD
-.pulse::before {
-  content: "";
-  position: absolute;
-  border: 1px solid var(--primary-color);
-  width: calc(100% + 40px);
-  height: calc(100% + 40px);
-  border-radius: 50%;
-  animation: pulse 1s linear infinite;
-}
-
-.pulse::after {
-  content: "";
-  position: absolute;
-  border: 1px solid var(--secondary-color);
-  width: calc(100% + 40px);
-  height: calc(100% + 40px);
-  border-radius: 50%;
-  animation: pulse 1s linear infinite;
-  animation-delay: 0.3s;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-
-  50% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1.3);
-    opacity: 0;
-  }
-}
-
-.chatbot-toggler span .fa-brands,
-.chatbot-toggler span .fa-solid {
-  font-size: 2rem;
-}
-body.show-chatbot .chatbot-toggler {
-  transform: rotate(90deg);
-}
-
-.chatbot-toggler span {
-=======
 .chatbot-btn span .fa-brands,
 .chatbot-btn span .fa-solid {
   font-size: 2rem;
@@ -1719,26 +1666,16 @@ body.show-chatbot .chatbot-btn {
 }
 
 .chatbot-btn span {
->>>>>>> 855222a9586480ae4177774b99d69f0ccaac4eff
   color: #fff;
   position: absolute;
 }
 
-<<<<<<< HEAD
-.chatbot-toggler span:last-child,
-body.show-chatbot .chatbot-toggler span:first-child {
-  opacity: 0;
-}
-
-body.show-chatbot .chatbot-toggler span:last-child {
-=======
 .chatbot-btn span:last-child,
 body.show-chatbot .chatbot-btn span:first-child {
   opacity: 0;
 }
 
 body.show-chatbot .chatbot-btn span:last-child {
->>>>>>> 855222a9586480ae4177774b99d69f0ccaac4eff
   opacity: 1;
 }
 
@@ -1755,13 +1692,12 @@ body.show-chatbot .chatbot-btn span:last-child {
   pointer-events: none;
   transform: scale(0.5);
   transform-origin: bottom right;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-<<<<<<< HEAD
-  transition: all 0.1s ease;
-=======
->>>>>>> 855222a9586480ae4177774b99d69f0ccaac4eff
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 body.show-chatbot .chatbot {
@@ -1793,14 +1729,6 @@ body.show-chatbot .chatbot {
   display: flex;
   gap: 2rem;
 }
-<<<<<<< HEAD
-.chatbot .chat-input {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-=======
->>>>>>> 855222a9586480ae4177774b99d69f0ccaac4eff
 .chatbot header .header-container .icon,
 .chatbot .chat-input .send-icon {
   height: 3rem;
@@ -1811,32 +1739,6 @@ body.show-chatbot .chatbot {
   background-color: var(--tertiary-color);
   border-radius: 50%;
 }
-<<<<<<< HEAD
-
-.chatbot .chat-input #send-btn {
-  border: none;
-}
-.chatbot .chat-input .send-icon {
-  height: 2rem;
-  width: 2rem;
-  background-color: transparent;
-  color: var(--lightest-color);
-  cursor: pointer;
-}
-.chatbot .chat-input .send-icon .fa-play {
-  font-size: 1.25rem;
-}
-.chatbot .chat-input #voiceBtn {
-  background-color: transparent;
-  border: none;
-}
-.chatbot .chat-input #voiceBtn .fa-microphone {
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--lightest-color);
-}
-
-=======
 .chatbot .chat-input .send-icon {
   height: 2rem;
   width: 2rem;
@@ -1845,7 +1747,6 @@ body.show-chatbot .chatbot {
 .chatbot .chat-input .send-icon .fa-paper-plane {
   font-size: 1.25rem;
 }
->>>>>>> 855222a9586480ae4177774b99d69f0ccaac4eff
 .chatbot header .header-container .icon .fa-envelope {
   font-size: 2rem;
   color: var(--primary-color);
@@ -1897,11 +1798,7 @@ body.show-chatbot .chatbot {
   text-align: center;
   line-height: 32px;
   align-self: flex-end;
-<<<<<<< HEAD
-  background: #724ae8;
-=======
   background: var(--primary-color);
->>>>>>> 855222a9586480ae4177774b99d69f0ccaac4eff
   border-radius: 4px;
   margin: 0 10px 7px 0;
 }
@@ -1971,11 +1868,7 @@ body.show-chatbot .chatbot {
 }
 
 @media (max-width: 490px) {
-<<<<<<< HEAD
-  .chatbot-toggler {
-=======
   .chatbot-btn {
->>>>>>> 855222a9586480ae4177774b99d69f0ccaac4eff
     right: 20px;
     bottom: 20px;
   }
