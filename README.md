@@ -26,7 +26,10 @@ To get started with the Job Portal Project:
 2. Set up a local web server environment (e.g., XAMPP).
 3. Import the JobPortal.sql file.
 4. Setup the tcpdf library for pdf report generation. (For setup you can follow this video: https://youtu.be/Q1iGTtMspho?si=f7XJ_I8wEJxiiaJb)
-5. Access the application through your web browser.
+5. For Admin credentials:
+    -Username: adminsabbir@gmail.com
+    -Password: admin5678
+7. Access the application through your web browser.
 
 
 
